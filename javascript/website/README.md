@@ -1,3 +1,9 @@
+Note générale
+================
+
+Il est important de vous aider des petits tutoriels
+https://www.w3schools.com/howto/default.asp
+
 Barre de navigation
 ===================
 

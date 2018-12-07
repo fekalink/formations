@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Nos Fans</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../css/global.css">
+  <title>Nos Fans</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.w3schools.com/lib/w3.js"></script> 
+  <script src="../products/products.js"></script> 
+  <script src="../cart/cart.js"></script> 
+  <script src="../init.js"></script> 
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="users.css">
 </head>
 <body>
 
 <div class="header">
   <h1>My Website</h1>
 
-<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_make_a_website_footer  -->
+  <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_make_a_website_footer  -->
   <p>A website created by me.</p>
 </div>
 
@@ -37,12 +43,19 @@
   <div class="main">
       <h2>ILS NOUS AIMENT ET NOUS AUSSI</h2>
       <h5>Liste des inscrits à la liste des fans</h5>
-      <table>
+      <table id="userslist">
         <tr>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Age</th>
           <th>Ville</th> 
+        </tr>
+        <tr w3-repeat="users">
+          <td>{{name}}</td>
+          <td>{{forname}}</td>
+          <td>{{age}}</td>
+          <td>{{city}}</td>
+          <td><a href="javascript:viewUserProfile({{id}})"></a></td>
         </tr>
       </table>
   </div>
@@ -51,7 +64,10 @@
 <div class="footer">
   <h2>Footer</h2>
 </div>
-
+<script>
+  userslist = localStorage.getItem("users");
+  w3.displayObject("userslist", userslist.users);
+</script>
 </body>
 </html>
 

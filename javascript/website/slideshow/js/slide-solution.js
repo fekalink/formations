@@ -1,4 +1,4 @@
-
+//@todo ajouter le déclenchement automatique 
 
 
 

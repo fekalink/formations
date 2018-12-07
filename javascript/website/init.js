@@ -20,7 +20,7 @@ var cart = new Cart();
 
 //cart.getTotalPrice();
 
-localStorage.setItem("cart", cart);
+localStorage.setItem("cart", JSON.stringify(cart));
 
 //populate users
 var userslist = {
@@ -32,5 +32,5 @@ var userslist = {
   ] 
 };
 
-localStorage.setItem("users", userslist);
+localStorage.setItem("users", JSON.stringify(userslist));
 

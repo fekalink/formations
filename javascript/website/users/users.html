@@ -65,8 +65,9 @@
   <h2>Footer</h2>
 </div>
 <script>
-  userslist = localStorage.getItem("users");
-  w3.displayObject("userslist", userslist.users);
+  userslist = JSON.parse(localStorage.getItem("users"));
+  console.log(userslist);
+  w3.displayObject("userslist", userslist);
 </script>
 </body>
 </html>

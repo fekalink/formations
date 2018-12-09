@@ -4,11 +4,13 @@
   <title>Nos Fans</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://www.w3schools.com/lib/w3.js"></script> 
-  <script src="../../js/init.js"></script> 
-  <script src="../products/products.js"></script> 
-  <script src="../cart/cart.js"></script> 
 
+  <script src="https://www.w3schools.com/lib/w3.js"></script> 
+  <script src="../../js/global.js"></script> 
+  <script src="users.js"></script> 
+  <script src="init.js"></script> 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../../css/global.css">
   <link rel="stylesheet" href="users.css">
 </head>
@@ -22,9 +24,9 @@
 </div>
 
 <div class="navbar">
-  <a href="modules/products/products.html">Boutique</a>
-  <a href="modules/forms/register.html">S'inscrire</a>
-  <a href="modules/users/users.html">Nos Fans</a>
+  <a href="../products/products.html">Boutique</a>
+  <a href="../forms/register.html">S'inscrire</a>
+  <a href="../users/users.html">Nos Fans</a>
   <a href="#" class="right">Link</a>
 </div>
 
@@ -55,7 +57,7 @@
           <td>{{forname}}</td>
           <td>{{age}}</td>
           <td>{{city}}</td>
-          <td><a href="javascript:viewUserProfile({{id}})"></a></td>
+          <td><a class="fa fa-address-book" href="javascript:MUSICBAND.users.viewProfile({{id}})"></a></td>
         </tr>
       </table>
   </div>
@@ -65,8 +67,7 @@
   <h2>Footer</h2>
 </div>
 <script>
-  userslist = JSON.parse(localStorage.getItem("users"));
-  console.log(userslist);
+  userslist = MUSICBAND.session.get("users");
   w3.displayObject("userslist", userslist);
 </script>
 </body>

@@ -34,4 +34,15 @@ Cart.prototype = {
   
 };
 
+//INITIALISATION
+
+var cart = new Cart();
+
+//cart.addProduct(product1)
+//cart.addProduct(product2)
+//cart.addProduct(product3)
+
+//cart.getTotalPrice();
+
+localStorage.setItem("cart", JSON.stringify(cart));
 

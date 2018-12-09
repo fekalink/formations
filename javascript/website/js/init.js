@@ -1,17 +1,23 @@
 
 function getHttpRoot() {
   var httpRoot = window.location.protocol + "//" +window.location.host + "/";
+  return httpRoot;
 }  
 
-var cart = new Cart();
 
-//cart.addProduct(product1)
-//cart.addProduct(product2)
-//cart.addProduct(product3)
+function getScript(src) {
+//   window.document.onload
+  var s = document.createElement('script');
+  s.type = "text/javascript";
+  s.src = src;
+  document.body.appendChild(s);
+  log(" script added " + s.src, "INFO");
+}
 
-//cart.getTotalPrice();
+function log(message, level="INFO") {
+  console.log("["+level+"] "+ message); 
+}
 
-localStorage.setItem("cart", JSON.stringify(cart));
 
 //populate users
 var userslist = {

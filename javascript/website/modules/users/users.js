@@ -1,4 +1,3 @@
-var MUSICBAND = MUSICBAND || {};
 
 MUSICBAND.users = {
 
@@ -10,7 +9,14 @@ MUSICBAND.users = {
     var user = userslist.users.find(function(u){
         return u.id == id;
     });
-    MUSICBAND.log(JSON.stringify(user), "DEBUG");
+    //MUSICBAND.log(JSON.stringify(user), "DEBUG");
    }
 
 };
+
+
+$(document).ready(function() {
+  var userslist = { "users" : MUSICBAND.session.get("users") };
+  console.log(userslist);
+  w3.displayObject("userslist", userslist);
+});

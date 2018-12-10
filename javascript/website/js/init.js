@@ -1,13 +1,30 @@
 
 
-MUSICBAND.config.load("file:///home/guillaume/Travail/sources/formations/javascript/website/config/config.json");
-MUSICBAND.log(MUSICBAND.config.values, "INFO");
+MUSICBAND.config.load("/config/config.json");
+MUSICBAND.session.set("users", MUSICBAND.config.data.users );
+MUSICBAND.session.set("products", MUSICBAND.config.data.products );
 
 //load scripts tags
-for (var i=0;i<MUSICBAND.config.scripts.lenght;i++) {
-    var src = MUSICBAND.config.scripts[i];
+//document.addEventListener("DOMContentLoaded", function() {
+  //load global scripts
+  for (var i=0;i<MUSICBAND.config.data.scripts.length;i++) {
+    var src = MUSICBAND.config.data.scripts[i];
     MUSICBAND.addScript(src);
-}
+  }
+
+  //load page specific scripts
+  var reg = new RegExp('(?:.+\/)([^#?]+)'); 
+  for (var i=0;i<MUSICBAND.config.data.pages.length;i++) {
+    var pageFile = reg.exec(window.location)[1];
+    if (pageFile === MUSICBAND.config.data.pages[i].name) {
+      for (var j=0;j<MUSICBAND.config.data.scripts.length;j++) {
+        var src = MUSICBAND.config.data.pages[i].scripts[j];
+        MUSICBAND.addScript(src);
+      }
+    }
+  }
+
+//});
 
 
 //load configuration (should be over http)

@@ -5,6 +5,16 @@
      "https://code.jquery.com/jquery-3.3.1.min.js",
      "https://www.w3schools.com/lib/w3.js"
  ],
+ "pages" : [
+     { 
+       "name" : "users.html",
+       "scripts" : ["users.js"]
+     },
+     {
+       "name": "products.html",
+       "scripts": ["products.js"]
+     }
+  ],
 
  "menu" : [  
    { "Boutique" : "modules/products/products.html"}, 
@@ -35,7 +45,7 @@
       "image": "modules/products/images/autcollant.jpg"
     }
  },
-  "users" : [
+  "users" : [ 
     { 
       "id": 1, 
       "name":"Galinette", 

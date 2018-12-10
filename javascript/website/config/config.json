@@ -1,6 +1,5 @@
 {
- "localRoot": "/home/guillaume/Travail/sources/formations/javascript/website/",
-
+  
  "scripts" : [
      "https://code.jquery.com/jquery-3.3.1.min.js",
      "https://www.w3schools.com/lib/w3.js"
@@ -20,31 +19,31 @@
    { "Boutique" : "modules/products/products.html"}, 
    { "Nos Fans" : "modules/users/users.html" }
   ],
- "products" : {
-    "p1": {
+ "products" : [
+    {
       "id": 1,
       "name":"Notre album",
       "price": 20,
       "text": "Notre nouvel album est un voyage au coeur de ce qui fait de nous ...",
-      "image": "modules/products/images/album.jpg"
+      "image": "/modules/products/images/album.jpg"
 
     },
-    "p2": {
+    {
       "id": 1,
       "name":"T-shirt",
       "price": 25,
       "text": "Soutenez-nous et faites-nous connaître ",
-      "image": "modules/products/images/tshirt.jpg"
+      "image": "/modules/products/images/tshirt.jpg"
 
     },
-    "p3": {
+    {
       "id": 1,
       "name":"Autocollant",
       "price": 5,
       "text": "Notre engagement",
-      "image": "modules/products/images/autcollant.jpg"
+      "image": "/modules/products/images/autcollant.jpg"
     }
- },
+  ],
   "users" : [ 
     { 
       "id": 1, 
@@ -52,7 +51,7 @@
       "forname":"Arthur", 
       "age":"32", 
       "city":"Grenoble" 
-    },   
+    },
     { 
       "id": 2, 
       "name":"Boubounette", 

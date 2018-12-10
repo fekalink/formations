@@ -17,6 +17,5 @@ MUSICBAND.users = {
 
 $(document).ready(function() {
   var userslist = { "users" : MUSICBAND.session.get("users") };
-  console.log(userslist);
   w3.displayObject("userslist", userslist);
 });

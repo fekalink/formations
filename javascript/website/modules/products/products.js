@@ -11,7 +11,7 @@ Product.prototype = {
   price:0,
   name:"",
   image:"",
-  text:"" 
+  text:"",
 
   constructor: Product,
 
@@ -35,7 +35,7 @@ Product.prototype = {
   },
   setText: function(text) {
     this.text = text;
-  }
+  },
   getText: function() {
     return this.text;
   }
@@ -50,10 +50,12 @@ document.getElementById('anchor').addEventListener('click', function() {
 */
 
 $(document).ready(function(data, event) {
-   $('.addtocart').click(function() {
-      //TODO dynamiser la liste produit
-      MUSICBAND.log( $(this). );
-    });
+  //TODO dynamiser la liste produit
+  var products = { "products" : MUSICBAND.session.get("products") };
+  w3.displayObject("productlist", products);
+  $('.addtocart').click(function() {
+
+  });
 });
 
 

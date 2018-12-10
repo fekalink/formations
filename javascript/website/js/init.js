@@ -1,10 +1,17 @@
-
-
+//global configuration
 MUSICBAND.config.load("/config/config.json");
+
+/**********************/
+/*  Loading session   */
+/**********************/
+
 MUSICBAND.session.set("users", MUSICBAND.config.data.users );
 MUSICBAND.session.set("products", MUSICBAND.config.data.products );
 
-//load scripts tags
+/**********************/
+/* load scripts tags  */
+/**********************/
+
 //document.addEventListener("DOMContentLoaded", function() {
   //load global scripts
   for (var i=0;i<MUSICBAND.config.data.scripts.length;i++) {

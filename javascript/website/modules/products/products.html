@@ -7,7 +7,9 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="../../css/global.css">
 	<link rel="stylesheet" href="products.css">
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="../../js/global.js"></script>
   <script src="products.js"></script>
   <script src="init.js"></script>
   
@@ -43,16 +45,17 @@
   </div>
   <div class="main">
 		<div class="w3-row-padding">
-			<div class="w3-col s4">
+
+			<div w3-repeat="products" class="w3-col s4">
 				<div class="card">
-					<img src="images/album.jpg" style="width:100%">
-					<h1>Notre album</h1>
-					<p class="price">20 euros</p>
-					<p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+          <img src="{{image}}" style="width:100%">
+          <h1>{{name}}</h1>
+          <p class="price">{{price}} euros</p>
+          <p>{{text}}</p>
 					<p><button class="addtocart">Add to Cart</button></p>
 				</div>
 			</div>
-
+<!--
 			<div class="w3-col s4">
 				<div class="card">
 					<img src="images/tshirt.jpg" style="width:100%">
@@ -74,6 +77,10 @@
 			</div>
 		</div>
  </div>
+-->
+ <script type="text/javascript">
+  //here it is like onload
+ </script>
 </body>
 
 </html>

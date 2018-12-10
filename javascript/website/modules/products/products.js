@@ -1,7 +1,8 @@
 function Product(id) {
     this.id = id;
     this.price = 0;
-    this.name = "";
+    this.name = "Product Name";
+    this.text = "Product description";
 }
 
 Product.prototype = {
@@ -9,6 +10,8 @@ Product.prototype = {
   id:0,
   price:0,
   name:"",
+  image:"",
+  text:"" 
 
   constructor: Product,
 
@@ -18,10 +21,24 @@ Product.prototype = {
   getPrice : function() {
     return this.price;
   },  
-
   setWeight: function(weight) {
     this.weight = weight;
   },
+  getWeight: function() {
+    return this.weight;
+  },
+  setImage: function() {
+    this.image = image;
+  },
+  getImage: function() {
+    return this.image;
+  },
+  setText: function(text) {
+    this.text = text;
+  }
+  getText: function() {
+    return this.text;
+  }
 
 }
 
@@ -32,8 +49,11 @@ document.getElementById('anchor').addEventListener('click', function() {
 });
 */
 
-$('addtocart').click(function() {
-  //TODO dynamiser la liste produit
-  MUSICBAND.log("Product click !");
+$(document).ready(function(data, event) {
+   $('.addtocart').click(function() {
+      //TODO dynamiser la liste produit
+      MUSICBAND.log( $(this). );
+    });
 });
+
 

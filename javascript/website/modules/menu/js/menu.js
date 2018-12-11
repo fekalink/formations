@@ -14,9 +14,10 @@ $(document).ready(function() {
       $("#login-link").click(function(e){
           if (MUSICBAND.session.isLoggedIn()) {
             MUSICBAND.session.logOut();
+            $("#login-link").toggleClass("w3-red w3-green");
+            $("#login-link").text("Log In");
           } else {
             $("#modal-login-form").show();
-
           }
       });
   });

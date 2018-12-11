@@ -5,6 +5,13 @@ MUSICBAND.config.load("/config/config.json");
 /*  Loading session   */
 /**********************/
 
+var userCookie = MUSICBAND.cookie.get("user");
+if (parseInt(userCookie) > 0) {
+  MUSICBAND.session.create(userCookie);
+} else {
+  MUSICBAND.session.create(0);
+}
+
 MUSICBAND.session.set("users", MUSICBAND.config.data.users );
 MUSICBAND.session.set("products", MUSICBAND.config.data.products );
 

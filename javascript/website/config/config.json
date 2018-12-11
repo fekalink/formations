@@ -1,23 +1,43 @@
 {
-
+ "OSMKey" : "CQGygA55zVK3GmfQJPpz",
+ "css": [
+    "https://www.w3schools.com/lib/w3.css",
+    "/css/global.css"
+ ],
  "scripts" : [
      "https://code.jquery.com/jquery-3.3.1.min.js",
-     "https://www.w3schools.com/lib/w3.js"
+     "https://www.w3schools.com/lib/w3.js",
+     "/modules/menu/js/menu.js"
  ],
  "pages" : [
      { 
        "name" : "users.html",
-       "scripts" : ["users.js"]
+       "scripts" : ["js/users.js"],
+       "css": []
+  
+     },
+     {
+       "name": "profile.html",
+       "scripts": [ 
+                    "https://cdn.klokantech.com/osmnames/v1/autocomplete.js",
+                    "js/geoloc-osm-input.js"  
+                  ],
+       "css": [ 
+          "https://cdn.klokantech.com/osmnames/v1/autocomplete.css",
+          "css/profile.css",
+          "css/forms.css"
+       ]
      },
      {
        "name": "products.html",
-       "scripts": ["products.js"]
+       "scripts": ["js/products.js"],
+       "css":["css/products.css"]
      }
   ],
 
  "menu" : [  
-   { "Boutique" : "modules/products/products.html"}, 
-   { "Nos Fans" : "modules/users/users.html" }
+   { "Boutique" : "/modules/products/products.html"}, 
+   { "Nos Fans" : "/modules/users/users.html" }
   ],
  "products" : [
     {

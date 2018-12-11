@@ -20,6 +20,13 @@ MUSICBAND = {
       js.async= false;
       document.head.appendChild(js);
     },
+    addCSS: function(url) {
+      var ss = document.createElement("link");
+      ss.type = "text/css";
+      ss.rel = "stylesheet";
+      ss.href = url;
+      document.getElementsByTagName("head")[0].appendChild(ss);
+    },
 
     log: function(message, level="INFO") {
       console.log("["+level+"] "+ message);
@@ -27,11 +34,12 @@ MUSICBAND = {
 
 }
 
-//TODO simulate login/logout
 MUSICBAND.session = {
 
     id: 0,
+    sessionData: {},
 
+    //TODO : should be stored according to the session user id
     set : function(key, value) {
       var json = JSON.stringify(value);
       localStorage.setItem(key, json);
@@ -44,14 +52,35 @@ MUSICBAND.session = {
     },
 
     create : function(userId=0) {
-      this.id = userId; 
+      this.logIn(userId);
+      this.set(this.getSessionKey(), '{"session created"}');
     },
 
     destroy : function() {
-      localStorage.clear();
+      localStorage.removeItem(this.getSessionKey());
+    },
+
+    isLoggedIn: function () { 
+      if (this.id == 0) {
+        return false;
+      }
+      return true;
+    },
+
+    logOut: function() {
+      this.id = 0;
+    },
+
+    logIn: function(userId) {
+      this.id = userId;
+    },
+
+    getSessionKey: function() {
+      return "session" + this.id;
     }
 
 };
+
 
 
 MUSICBAND.config = {

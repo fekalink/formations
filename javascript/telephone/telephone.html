@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "fr">
+<head>
+    <meta charset = "utf-8">
+    
+    <title> Téléphone </title>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   
+    <script src="https://www.w3schools.com/lib/w3.js"></script> 
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <!-- <script src="telephone.js"></script> -->
+    <link rel="stylesheet" href="telephone.css" type= "text/css"> 
+
+</head>
+
+<body>
+
+<div class="w3-container">
+  <div id="telephone" class="w3-card-4 w3-dark-grey" >
+    
+    <div id="main" class="w3-container w3-center">
+      
+      <h3>My Cell Phone</h3>
+      
+      <div id="ecran">
+      
+      </div>
+      <div id="switch" class="w3-section">
+        
+        <button id="switchButton" class="w3-button w3-green">Start</button>
+      </div>
+     
+      <div id="myProgress">
+  
+  <div id="myBar"></div>
+
+</div>
+
+   </div>
+
+    </div>
+
+</div>
+<script>
+function setTitle(title) {
+    $("#main > h3").text(title);
+    return true;
+}
+
+
+var a = 1;
+var b = 2;
+var c = a + b; 
+//debut des interaction avec le DOM HTML
+var h3Text = $("#main > h3").text();
+h3Text += " Samsung";
+
+//setTitle(h3Text);
+
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+#telephone {
+
+border: 1px solid black;
+margin-right: auto;
+margin-left: auto;
+margin-top: 50px;
+height: 450px;
+width:500px;
+
+}
+
+#switch {
+
+padding-top: 30px;
+
+}
+
+#ecran {
+  
+    text-align:left;
+	border: 2px solid black;
+	height:200px;
+	width:100%;
+    background-color:white;
+    color: black;
+
+}
+
+/* Progress Bar */
+#myProgress {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  background-color: #ddd;
+}
+
+#myBar {
+  background-color: #4CAF50;
+  width: 10px;
+  height: 30px;
+  position: absolute;
+}

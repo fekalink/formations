@@ -1,0 +1,43 @@
+<DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+</head>
+<body>
+
+    <form id="myForm" action="" method="GET">
+     <label for="foo">FOO</label>
+     <input type="radio" name="foo" value="1" checked="checked" />
+     <input type="radio" name="foo" value="0" /><br />
+     <label for="bar">BAR</label>
+     <input name="bar" value="xxx" /><br />
+     <label for="ville">Ville</label>
+     <select name="ville">
+      <option value="mulhouse" selected="selected">Mulhouse</option>
+      <option value="grenoble">Grenoble</option>
+      <option value="lyon">Lyon</option>
+      <option value="paris">Paris</option>
+    </select>
+    <input type="submit"/>
+    </form>
+
+<script>
+//tester avec différents sélecteurs !
+//form, #myForm
+var formSelector = "form"
+document.querySelector(formSelector).addEventListener('submit', function(e) {
+    //console.log(this);
+    var formElements = document.getElementById("myForm").elements;    
+    var postData = {};
+    for (var i = 0; i < formElements.length; i++) {
+       //we dont want to include the submit-buttom
+       if (formElements[i].type!="submit") {
+          postData[formElements[i].name]=formElements[i].value;
+       }
+    }
+    // tester avec ou sans e.preventDefault -> que se passe-t-il ?
+    e.preventDefault();
+});
+</script>
+</body>
+</html>

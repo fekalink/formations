@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script src="../../js/init.js"></script>
-<script src="cart.js"></script>
+<head>
+  <title>Shopping Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/js/global.js"></script>
+  <script src="/js/init.js"></script>
+</head>
 <body>
 
-<div class="w3-container">
-  <h2>Table All</h2>
-  <p>The w3-table-all class combines the w3-table, w3-bordered, w3-striped, and 
-  w3-border classes:</p>
+<div class="header">
+  <h1>My Website</h1>
 
-  <table class="w3-table-all">
-    <tr>
-      <th>Product Id</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Weigth</th> 
-    </tr>
-  </table>
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_make_a_website_footer  -->
+  <p>A website created by me.</p>
 </div>
+
+<div id="menu" class="navbar">
+</div>
+<div id="modal-login-form-container">
+<!-- <div w3:includeHTML="/modules/forms/login.html"></div> -->
+</div>
+
+<div class="row">
+  <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <h3>More Text</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+
+    <div class="w3-container">
+      <h2>Table All</h2>
+      <p>The w3-table-all class combines the w3-table, w3-bordered, w3-striped, and 
+      w3-border classes:</p>
+
+      <table class="w3-table-all">
+        <tr>
+          <th>Product Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Weigth</th> 
+        </tr>
+      </table>
+    </div>
+  </div>
 
 </body>
 </html>

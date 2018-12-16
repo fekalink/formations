@@ -145,6 +145,14 @@ MUSICBAND.config = {
 };
 
 
+MUSICBAND.file = {
+
+ includeHTML : function(src, settings, callback) {
+   MUSICBAND.query.get(src, settings, callback);
+ }
+
+};
+
 MUSICBAND.query = {
 
    getJSON: function(src, settings, callback) {
@@ -177,7 +185,7 @@ MUSICBAND.query = {
       }
       xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
-          callback(xobj.responseText);
+          callback(xobj.responseText, settings);
         }
       };
       xobj.send(null);

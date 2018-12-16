@@ -37,7 +37,21 @@
      {
        "name": "cart.html",
        "scripts": ["js/cart.js"]
+     },
+     {
+       "name": "slideshow.html",
+       "scripts": ["js/slide-exercice1.js"],
+       "css": ["css/slideshow.js"]
      }
+
+  ],
+  "components": [
+    {
+      "src": "/modules/slideshow/slideshow.html",
+      "target": "#header",
+      "scripts" : ["/modules/slideshow/js/slideshow.js"],
+      "css"  : ["/modules/slideshow/css/slideshow.css"]
+    }
   ],
 
  "menu" : [  

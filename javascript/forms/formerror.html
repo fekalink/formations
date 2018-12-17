@@ -1,0 +1,83 @@
+<DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+</head>
+<body>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">API MDN contraintes validation</a>
+
+    <form id="myForm" action="" method="GET">
+         <label for="nom">Titre</label>
+         <input type="radio" name="titre" value="M" checked="checked" >M.</input>
+         <input type="radio" name="titre" value="Mme" />Mme</input><br />
+
+         <label for="nom">Nom</label>
+         <input name="nom" value="" placeholder="Nom"/><br />
+         <label for="prenom">Prénom</label>
+         <input name="prenom" value="" placeholder="Prénom"/><br />
+         <label for="age">Age</label>
+         <input type="text" pattern="\d+" name="age" value="" placeholder="Age"/><br />
+ 
+         <label for="email">Email</label>
+         <input type="email" name="email" value="" placeholder="Email"/><br />
+
+
+         <label for="ville">Ville</label>
+         <select name="ville">
+          <option value="mulhouse" selected="selected">Mulhouse</option>
+          <option value="grenoble">Grenoble</option>
+          <option value="lyon">Lyon</option>
+          <option value="paris">Paris</option>
+        </select>
+        <input type="submit"/>
+    </form>
+
+<script>
+
+
+window.addEventListener('load',function()
+{
+ 
+  var ceform = document.querySelector('#myForm');
+  var email = document.getElementsByName('email')[0];
+  var data = new  FormData(ceform);
+  console.log(data);
+  function interactif() {
+      // revenir au mode interactif des messages d'erreurs du navigateur
+      console.log("Ici commence le traitement des valeurs du formulaire");
+  }
+
+  ceform.addEventListener('submit',function(e)
+  {
+
+    email.setCustomValidity(''); 
+
+    // je teste la validité du formulaire
+    if ( ceform.checkValidity() ) { 
+      if (!/\.com$/.test(email.value)) {
+        email.setCustomValidity('Seules les adresses .com sont autorisées!');        
+      }
+      interactif();
+    } else {
+       //add a global message 
+       console.log("Ajouter un message d'erreur global ! ");
+    }
+     
+    //ATTENTION ceci empeche l'action de s'executer !
+    e.preventDefault();
+  },false);
+  /*
+  ['change','click','keypress'].forEach(function(ev)
+  {
+    // on efface le message d'erreur sur tout événement susceptible de changer cet élément
+    email.addEventListener(ev,function(e)
+    {
+      email.setCustomValidity('');
+    },false);
+  });
+  */
+},false);
+</script>
+</body>
+</html>

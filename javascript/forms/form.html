@@ -35,6 +35,7 @@ document.querySelector(formSelector).addEventListener('submit', function(e) {
           postData[formElements[i].name]=formElements[i].value;
        }
     }
+    console.log(postData);
     // tester avec ou sans e.preventDefault -> que se passe-t-il ?
     e.preventDefault();
 });

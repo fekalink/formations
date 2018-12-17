@@ -34,7 +34,10 @@ MUSICBAND = {
 
 }
 
-//TODO depedencies injection
+/**
+ *@todo dependencies injection
+ *
+ */
 MUSICBAND.session = {
 
     id: 0,
@@ -87,6 +90,13 @@ MUSICBAND.session = {
 
 MUSICBAND.cookie = {
 
+  /**
+   * Set or create a cookie value
+   *@param cname string cookie name
+   *@param cvalue string cookie value
+   *@param exdays number of days before expiration
+   *@return default 
+   */
   set: function(cname, cvalue, exdays=365) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -94,6 +104,11 @@ MUSICBAND.cookie = {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   },
 
+  /**
+   * Allow one to get a cookie value by name
+   * @param cname string cookie name
+   * @return string the cookie value, empty string otherwise
+   */
   get: function(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -129,6 +144,15 @@ MUSICBAND.config = {
 
 };
 
+
+MUSICBAND.file = {
+
+ includeHTML : function(src, settings, callback) {
+   MUSICBAND.query.get(src, settings, callback);
+ }
+
+};
+
 MUSICBAND.query = {
 
    getJSON: function(src, settings, callback) {
@@ -144,7 +168,7 @@ MUSICBAND.query = {
    },
 
    post: function(src, settings, callback) {
-     settings.method = "GET";
+     settings.method = "POST";
      this.exec(src, settings, callback);
    },
 
@@ -161,7 +185,7 @@ MUSICBAND.query = {
       }
       xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
-          callback(xobj.responseText);
+          callback(xobj.responseText, settings);
         }
       };
       xobj.send(null);
@@ -173,10 +197,3 @@ MUSICBAND.query = {
 
 }
 
-/*
-var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "http://scriptlocation/das.js";
-    // Use any selector
-    $("head").append(s);
-*/

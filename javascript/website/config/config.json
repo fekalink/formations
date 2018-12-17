@@ -2,6 +2,7 @@
  "OSMKey" : "CQGygA55zVK3GmfQJPpz",
  "css": [
     "https://www.w3schools.com/lib/w3.css",
+    " https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
     "/css/global.css"
  ],
  "scripts" : [
@@ -12,8 +13,8 @@
  "pages" : [
      { 
        "name" : "users.html",
-       "scripts" : ["js/users.js"],
-       "css": []
+       "scripts" : ["js/users.js", "js/init.js"],
+       "css": ["css/forms.css", "css/users.css"]
   
      },
      {
@@ -32,7 +33,25 @@
        "name": "products.html",
        "scripts": ["js/products.js"],
        "css":["css/products.css"]
+     },
+     {
+       "name": "cart.html",
+       "scripts": ["js/cart.js"]
+     },
+     {
+       "name": "slideshow.html",
+       "scripts": ["js/slide-exercice1.js"],
+       "css": ["css/slideshow.js"]
      }
+
+  ],
+  "components": [
+    {
+      "src": "/modules/slideshow/slideshow.html",
+      "target": "#header",
+      "scripts" : ["/modules/slideshow/js/slideshow.js"],
+      "css"  : ["/modules/slideshow/css/slideshow.css"]
+    }
   ],
 
  "menu" : [  
@@ -49,7 +68,7 @@
 
     },
     {
-      "id": 1,
+      "id": 2,
       "name":"T-shirt",
       "price": 25,
       "text": "Soutenez-nous et faites-nous connaître ",
@@ -57,7 +76,7 @@
 
     },
     {
-      "id": 1,
+      "id": 3,
       "name":"Autocollant",
       "price": 5,
       "text": "Notre engagement",

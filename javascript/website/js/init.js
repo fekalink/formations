@@ -49,7 +49,31 @@ for (var i=0;i<MUSICBAND.config.data.pages.length;i++) {
   }
 }
 
-//menu
+//components
+for (var i=0;i<MUSICBAND.config.data.components.length;i++) {
+    for (var j=0;j<MUSICBAND.config.data.components[i].scripts.length;j++) {
+        let src = MUSICBAND.config.data.components[i].scripts[j];
+        console.log("Loading JS "+src);
+        MUSICBAND.addScript(src);
+    }
+    for (var k=0;k<MUSICBAND.config.data.components[i].css.length;k++) {
+        let src = MUSICBAND.config.data.components[i].css[i];
+        console.log("Loading CSS "+src);
+        MUSICBAND.addCSS(src);
+    }
+    let src = MUSICBAND.config.data.components[i].src;
+    let targetSelector = MUSICBAND.config.data.components[i].target;
+    MUSICBAND.file.includeHTML(src,
+                              {
+                                async:false, 
+                                target:targetSelector,
+                              }, 
+                              function(content, settings) {
+                                document.addEventListener("DOMContentLoaded", function(e) {
+                                  document.querySelector(settings.target).innerHTML = content;
+                                });
+                              });
 
-//set page values
+}
+
 

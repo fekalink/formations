@@ -1,0 +1,30 @@
+<DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+</head>
+<body>
+
+  <a href="https://medium.com/@jacobwarduk/how-to-correctly-use-preventdefault-stoppropagation-or-return-false-on-events-6c4e3f31aedb">Events article</a>
+
+  <div class="file-upload">
+    <input type="file" name="upload-file" class="file-upload__input" style="display: none;" />
+
+    <div class="file-upload__drop-zone">
+      <span class="file-upload__drop-zone-text">Drop files here</span>
+      <a href="#" class="file-upload__btn--upload">Upload files</a>
+    </div>
+</div>
+<script>
+function fileUpload() {
+    document.querySelector('.file-upload__input').click();
+}
+
+const dropzone = document.querySelector('.file-upload__drop-zone');
+const button = document.querySelector('.file-upload__btn--upload');
+
+dropzone.addEventListener('click', fileUpload);
+button.addEventListener('click', fileUpload);
+</script>
+</body>
+</html>

@@ -24,17 +24,24 @@
 <script>
 //tester avec différents sélecteurs !
 //form, #myForm
+//document.querySelectorAll("input[name=foo]:checked")[0].value
 var formSelector = "form"
 document.querySelector(formSelector).addEventListener('submit', function(e) {
     //console.log(this);
-    var formElements = document.getElementById("myForm").elements;    
-    var postData = {};
+    let formElements = document.getElementById("myForm").elements;
+    let postData = {};
+
     for (var i = 0; i < formElements.length; i++) {
-       //we dont want to include the submit-buttom
-       if (formElements[i].type!="submit") {
-          postData[formElements[i].name]=formElements[i].value;
+       let elmt = formElements[i];
+       if (elmt.type == "submit") {
+         continue;
        }
+       if (elmt.type == "radio" && !elmt.checked) {
+           continue;
+       }
+       postData[elmt.name] = elmt.value;
     }
+    console.log(postData);
     // tester avec ou sans e.preventDefault -> que se passe-t-il ?
     e.preventDefault();
 });

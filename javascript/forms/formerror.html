@@ -6,6 +6,7 @@
 <body>
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation">API MDN contraintes validation</a>
+<a href="https://www.w3schools.com/js/js_validation_api.asp">API form validation</a>
 
     <form id="myForm" action="" method="GET">
          <label for="nom">Titre</label>
@@ -38,7 +39,7 @@
 
 window.addEventListener('load',function()
 {
- 
+
   var ceform = document.querySelector('#myForm');
   var email = document.getElementsByName('email')[0];
   var data = new  FormData(ceform);
@@ -50,10 +51,8 @@ window.addEventListener('load',function()
 
   ceform.addEventListener('submit',function(e)
   {
+    //email.setCustomValidity(''); 
 
-    email.setCustomValidity(''); 
-
-    // je teste la validité du formulaire
     if ( ceform.checkValidity() ) { 
       if (!/\.com$/.test(email.value)) {
         email.setCustomValidity('Seules les adresses .com sont autorisées!');        
@@ -67,7 +66,7 @@ window.addEventListener('load',function()
     //ATTENTION ceci empeche l'action de s'executer !
     e.preventDefault();
   },false);
-  /*
+  
   ['change','click','keypress'].forEach(function(ev)
   {
     // on efface le message d'erreur sur tout événement susceptible de changer cet élément
@@ -76,7 +75,7 @@ window.addEventListener('load',function()
       email.setCustomValidity('');
     },false);
   });
-  */
+  
 },false);
 </script>
 </body>

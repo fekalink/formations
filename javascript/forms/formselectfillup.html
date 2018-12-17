@@ -1,0 +1,45 @@
+<DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"> 
+</head>
+<body>
+
+    <form id="myForm" action="" method="GET">
+
+         <label for="nom">Titre</label>
+         <input type="radio" name="titre" value="M" checked="checked" >M.</input>
+         <input type="radio" name="titre" value="Mme" />Mme</input><br />
+
+         <label for="nom">Nom</label>
+         <input name="nom" value="" placeholder="Nom"/><br />
+         <label for="prenom">Prénom</label>
+         <input name="prenom" value="" placeholder="Prénom"/><br />
+         <label for="age">Age</label>
+         <input type="text" pattern="\d+" name="age" value="" placeholder="Age"/><br />
+ 
+         <label for="email">Email</label>
+         <input type="email" name="email" value="" placeholder="Email"/><br />
+
+
+         <label for="ville">Ville</label>
+
+         <!-- Exercice 1 : remplir la liste à partir d'un objet https://www.w3schools.com/w3js/w3js_display.asp -->
+         <!-- Exercice 2 : externaliser le fichier JS qui contient la déclaration et l'initialisation -->
+         <!-- Exercice 3 :  -->
+
+         <select name="ville">
+          <option value="mulhouse" selected="selected">Mulhouse</option>
+          <option value="grenoble">Grenoble</option>
+          <option value="lyon">Lyon</option>
+          <option value="paris">Paris</option>
+        </select>
+
+        <input type="submit"/>
+    </form>
+
+    <script>
+    
+    </script>
+</body>
+</html>

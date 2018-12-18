@@ -10,7 +10,7 @@
          <input type="radio" name="foo" value="1" checked="checked" />
          <input type="radio" name="foo" value="0" /><br />
          <label for="bar">BAR</label>
-         <input name="bar" value="xxx" /><br />
+         <input type="text" name="bar" value="xxx" /><br />
          <label for="ville">Ville</label>
          <select name="ville">
           <option value="mulhouse" selected="selected">Mulhouse</option>
@@ -18,16 +18,20 @@
           <option value="lyon">Lyon</option>
           <option value="paris">Paris</option>
         </select>
-        <input type="submit"/>
+          <br />
+         <label for="conditions">Accepter Conditions générales</label>
+         <input type="checkbox" name="conditions" /><br />
+        <input type="submit" value="Envoyer"/>
     </form>
 
 <script>
 //tester avec différents sélecteurs !
 //form, #myForm
 //document.querySelectorAll("input[name=foo]:checked")[0].value
-var formSelector = "form"
+
+var formSelector = "form";
 document.querySelector(formSelector).addEventListener('submit', function(e) {
-    //console.log(this);
+    console.log("Mon formulaire a été soumis !");
     let formElements = document.getElementById("myForm").elements;
     let postData = {};
 
@@ -45,6 +49,7 @@ document.querySelector(formSelector).addEventListener('submit', function(e) {
     // tester avec ou sans e.preventDefault -> que se passe-t-il ?
     e.preventDefault();
 });
+
 </script>
 </body>
 </html>

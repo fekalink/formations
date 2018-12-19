@@ -1,34 +1,17 @@
 
-//constructeur
-function Eleve() {
-    
-    this.prenom="";
-} 
 
-Eleve.prototype = {
-  getPrenom: function() {
-     return this.prenom;
-   },
-  setPrenom: function(prenom) {
-     this.prenom = prenom;
-   }
-
-};
-
-
-
-var eleve1 = 
+var eleve1 =
 {
    prenom: 'Jean',
    nom: 'Dupont',
    age: 18,
    notes: {
-     math: { 
-        note:14, 
+     math: {
+        note:14,
         coeff:3
      },
-     info: { 
-        note:17, 
+     info: {
+        note:17,
         coeff:7
      },
      anglais: {
@@ -36,7 +19,7 @@ var eleve1 =
         coeff: 1
      }
    },
-   
+
 };
 
 console.log(eleve1);
@@ -51,8 +34,8 @@ console.log(eleve1);
 
 function getMoyenne(eleve1) {
     let moyenne = ((eleve.notes.math.note * eleve.notes.math.coeff) + (eleve.notes.info.note*eleve.notes.info.coeff) +
-    (eleve.notes.anglais.note*eleve.notes.anglais.coeff) ) 
-    / 
+    (eleve.notes.anglais.note*eleve.notes.anglais.coeff) )
+    /
     (eleve.notes.anglais.coeff + eleve.notes.math.coeff + eleve.notes.info.coeff)
     return moyenne;
 }
@@ -60,23 +43,3 @@ function getMoyenne(eleve1) {
 var moyenne = getMoyenne(eleve1);
 
 console.log(moyenne);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

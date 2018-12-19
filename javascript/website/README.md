@@ -20,6 +20,16 @@ Barre de navigation
 
 - En tant qu'utilisateur connecté je veux pouvoir me déconnecter.
 
+Menu
+============
+
+### Exercice 1
+
+ - En tant que développeur je veux pouvoir configurer mon module de menu depuis je fichier configuration json
+
+ - lire la configuration depuis le module pour peupler le code de présentation
+
+
 Page produit
 ============
 
@@ -32,6 +42,19 @@ Page produit
 ### Exercice 2
 
 TODO
+
+Ergonomie
+===========
+
+### Exercice 1
+- En tant qu'utilisateur je veux une barre de menu collante (sticky navbar)
+https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+
+### Exercice 2
+
+- En tant qu'utilisateur je veux pouvoir cliquer sur une flèche qui me permet de remonter automatiquement en tête de pages
+ex: https://www.escaleindienne.fr/service-traiteur.php
+
 
 Page panier
 ===========
@@ -51,18 +74,23 @@ Page fan club
 
 ### Exercice 2
 
-En tant qu'utilisateur je veux pouvoir voir le détail du profil du fan sélectionné
+- En tant qu'utilisateur je veux pouvoir afficher les détails du profil du fan sélectionné
 
 ### Exercice 3
 
-En tant qu'utilisateur je veux pouvoir modifier mon profil
+- En tant qu'utilisateur connecté je veux pouvoir modifier mon profil
 
 Session
 ==============
 
+### Stockage des données dans le navigateur
+
 Le localStorage permet de stocker des données relative à la navigation courante
 Nous avons besoin de savoir si l'utilisateur courant est anonyme ou non (connecté)
- - comment distinguer un utilisateur conecté de l'utilsateur anonyme ?
+
+### Cookies et session
+
+ - comment distinguer un utilisateur connecté de l'utilsateur anonyme ?
 
  - comment stocker les données d'un utilisateur donné et s'en souvenir après
  déconnexion/reconnexion ?
@@ -74,22 +102,26 @@ Modularisation
 
 Eviter les copier de coller de code html/js
 
-### Exercice 0
-Indentifier les zones html qui sont partagées par toutes les pages du site
+### Exercice 1
+
+Identifier les zones html qui sont partagées par toutes les pages du site
  - donner une liste des modules à créer
  - existe-t-il un module avec une présentation particulière par rapport aux autres ?
    si oui en quoi est-il différents des autres différence ?
 
-### Exercice 1
-créer un module Menu (navigation)
- - créer une confuration json qui permet de paramétrer le module
- - lire la configuration depuis le mondule pour peupler le code de présentation
- - créer une fonction js qui permet d'afficher le module
-
-
 ### Exercice 2
 
- créer un module slideshow
+ module formulaire de connexion (dans le module session ? KISS ?)
 
-### Exercice 3
- module fomrulaire de connexion (dans le module session ? KISS ?)
+
+Refactoring
+=============
+
+### Exercice 1 :
+
+- En tant que développeur je veux utiliser les classes plutôt que les prototypes
+pour la déclaration de mes classes.
+
+### Exercice 2 :
+
+- En tant que développeur je veux utiliser

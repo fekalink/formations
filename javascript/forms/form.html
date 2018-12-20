@@ -1,16 +1,20 @@
 <DOCTYPE html>
 <html>
 <head>
- <meta charset="UTF-8"> 
+ <meta charset="UTF-8">
 </head>
 <body>
+<!--
 
-    <form id="myForm" action="" method="GET">
+-->
+    <form id="myForm" action="" method="POST">
          <label for="foo">FOO</label>
-         <input type="radio" name="foo" value="1" checked="checked" />
+         <input type="radio" name="foo" value="1" placeholder="" checked="checked" />
          <input type="radio" name="foo" value="0" /><br />
          <label for="bar">BAR</label>
          <input type="text" name="bar" value="xxx" /><br />
+         <label for="email">Email</label>
+         <input type="email" name="email" value="" placeholder="example@domaine.org"></input><br />
          <label for="ville">Ville</label>
          <select name="ville">
           <option value="mulhouse" selected="selected">Mulhouse</option>
@@ -18,6 +22,7 @@
           <option value="lyon">Lyon</option>
           <option value="paris">Paris</option>
         </select>
+         <input type="text" name="zipcode" value="" readonly> </input>
           <br />
          <label for="conditions">Accepter Conditions générales</label>
          <input type="checkbox" name="conditions" /><br />
@@ -29,8 +34,8 @@
 //form, #myForm
 //document.querySelectorAll("input[name=foo]:checked")[0].value
 
-var formSelector = "form";
-document.querySelector(formSelector).addEventListener('submit', function(e) {
+var formSelector = "#myForm";
+function myCallbackSubmit(e) {
     console.log("Mon formulaire a été soumis !");
     let formElements = document.getElementById("myForm").elements;
     let postData = {};
@@ -48,7 +53,29 @@ document.querySelector(formSelector).addEventListener('submit', function(e) {
     console.log(postData);
     // tester avec ou sans e.preventDefault -> que se passe-t-il ?
     e.preventDefault();
-});
+}
+document.querySelector(formSelector).addEventListener('submit', myCallbackSubmit);
+
+function showZipCode(e) {
+  let ville = this.options[this.options.selectedIndex].value;
+  let zipInput = this.parentNode.querySelector("input[name=zipcode]");
+  let zipcode;
+
+  let zipVilles = {
+     "grenoble": 38000,
+     "lyon": 69000,
+     "mulhouse": 68000,
+     "paris": 75000
+  };
+
+  zipcode = zipVilles[ville.toLowerCase()];
+
+  zipInput.value = zipcode;
+  e.preventDefault();
+}
+
+
+document.querySelector(formSelector + " select[name=ville]").addEventListener("change", showZipCode);
 
 </script>
 </body>

@@ -38,15 +38,16 @@ let listeVilles = getListeVilles();
 w3.displayObject("listeVilles", listeVilles);
 
 function getListeVilles() {
+  let settings = {"method":"GET", "async": false, "data":"", response:""};
+  //la fonction ajaxRequest appel une requete synchrone
+  ajaxRequest("/modules/ajax/listeVilles.php",
+              settings,
+              function(content, settings) {
+                settings.response = JSON.parse(content);
+              });
 
-  let listeVilles = {
-                      "villes": [
-                          { "name": "Mulhouse", "value": "mulhouse", "zipcode": 68000, "logo":"image/mulhouse.png" },
-                          { "name": "Grenoble", "value": "grenoble", "zipcode": 38000, "logo":"image/gre.png" },
-                          { "name": "Paris", "value": "paris", "zipcode": 75000,"logo":"image/paris.png" },
-                          { "name": "Lyon", "value": "lyon", "zipcode": 69000, "logo":"image/lyon.png" }
-                      ]
-                    };
+   //l'objet settings est modifié par la fonction ajaxRequest
+   let listeVilles = settings.response;
    return listeVilles;
 }
 
@@ -89,10 +90,8 @@ document.querySelector(formSelector).addEventListener('submit', myCallbackSubmit
 function showZipCode(e) {
   let ville = this.options[this.options.selectedIndex].value;
   let zipInput = this.parentNode.querySelector("input[name=zipcode]");
-  let zipcode;
   //recuperer le zipcode de la ville sélectionnée
-
-  zipcode = getAttributeValueVille(ville, "zipcode");
+  let zipcode = getAttributeValueVille(ville, "zipcode");
 
   zipInput.value = zipcode;
   e.preventDefault();
@@ -101,11 +100,11 @@ function showZipCode(e) {
 
 document.querySelector(formSelector + " select[name=ville]").addEventListener("change", showZipCode);
 
-//ajaxRequest("/modules/ajax/listeVilles.php");
 
 function ajaxRequest(destination, settings, callback) {
    if (settings.async !== false) {
      settings.async = true;
+     console.log("DEBUG async query");
    }
    var xobj = new XMLHttpRequest();
    xobj.overrideMimeType(settings.dataType);
@@ -116,10 +115,14 @@ function ajaxRequest(destination, settings, callback) {
    }
    xobj.onreadystatechange = function () {
      if (xobj.readyState == 4 && xobj.status == "200") {
-       callback(xobj.responseText, settings);
+       return callback(xobj.responseText, settings);
      }
    };
-   xobj.send(settings.data);
+   if (settings.data) {
+     xobj.send(settings.data);
+   } else {
+     xobj.send(null);
+   }
 }
 
 

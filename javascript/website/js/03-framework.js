@@ -1,3 +1,4 @@
+
 var MUSICBAND = MUSICBAND || {};
 
 MUSICBAND = {
@@ -169,6 +170,9 @@ MUSICBAND.query = {
 
    post: function(src, settings, callback) {
      settings.method = "POST";
+     if (!settings.data) {
+       console.log("[WARNING] MUSICBAND.query.post() has empty settings.data");
+     }
      this.exec(src, settings, callback);
    },
 

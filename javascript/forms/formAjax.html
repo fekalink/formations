@@ -1,0 +1,76 @@
+<DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+</head>
+<body>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">XMLHttpRequest MDN</a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest#Using_FormData_objects">Ajax avec FormData</a>
+
+    <form id="myForm" action="" method="GET">
+
+         <label for="nom">Titre</label>
+         <input type="radio" name="titre" value="M" checked="checked" >M.</input>
+         <input type="radio" name="titre" value="Mme" />Mme</input><br />
+
+         <label for="nom">Nom</label>
+         <input name="nom" value="" placeholder="Nom"/><br />
+         <label for="prenom">Prénom</label>
+         <input name="prenom" value="" placeholder="Prénom"/><br />
+         <label for="age">Age</label>
+         <input type="text" pattern="\d+" name="age" value="" placeholder="Age"/><br />
+
+         <label for="email">Email</label>
+         <input type="email" name="email" value="" placeholder="Email"/><br />
+
+
+         <label for="ville">Ville</label>
+
+         <select name="ville">
+          <option value="mulhouse" selected="selected">Mulhouse</option>
+          <option value="grenoble">Grenoble</option>
+          <option value="lyon">Lyon</option>
+          <option value="paris">Paris</option>
+        </select>
+
+        <input type="submit"/>
+    </form>
+
+    <script>
+window.addEventListener("load", function(e) {
+
+     function ajaxRequest(destination, settings, callback) {
+        if (settings.async !== false) {
+          settings.async = true;
+        }
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType(settings.dataType);
+        try {
+          xobj.open(settings.method, destination, settings.async);
+        } catch(e) {
+          console.error(e);
+        }
+        xobj.onreadystatechange = function () {
+          if (xobj.readyState == 4 && xobj.status == "200") {
+            callback(xobj.responseText, settings);
+          }
+        };
+        xobj.send(settings.data);
+    }
+
+   let form = document.querySelector("#myForm");
+   form.addEventListener("submit", function(e){
+     e.preventDefault();
+     let data = new FormData(form);
+     console.log(data.get("titre"));
+     console.log(data.get("ville"));
+     console.log(data.get("email"));
+
+
+   });
+}, false);
+
+
+    </script>
+</body>
+</html>

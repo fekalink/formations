@@ -18,7 +18,7 @@ function getListeVilles() {
                      "response":""
                    };
     //la fonction ajaxRequest appel une requete synchrone
-    MUSICBAND.query.get("/modules/ajax/listeVilles.php",
+    MUSICBAND.query.get("/modules/ajax/04-controller.php?action=listeVilles",
                 settings,
                 function(content, settings) {
                   //l'objet settings est modifié par la fonction callback

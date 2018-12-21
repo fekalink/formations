@@ -34,6 +34,8 @@ Barre de navigation
 ### Exercice 2
 
 - En tant qu'utilisateur je souhaite pouvoir me connecter, en cliquant sur le bouton login
+  Coup de pouce : Soumission asynchrone du formulaire, il faut appeler la fonction MUSICBAND.query.post()
+  avec le parametre settings contenant au moins ceci { async:true }. Prenez exemple sur l'existant (forms/*-forms.js)
 
 - En tant que développeur je veux que le bouton login affiche un formulaire de login.
 
@@ -140,7 +142,3 @@ Refactoring
 
 - En tant que développeur je veux utiliser les classes plutôt que les prototypes
 pour la déclaration de mes classes.
-
-### Exercice 2 :
-
-- En tant que développeur je veux utiliser

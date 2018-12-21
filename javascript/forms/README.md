@@ -13,5 +13,3 @@ je veux écouter l'évènement javascript associé et déclencher une action
    - En tant que développeur, je dois créer un champs code postal
    - je veux récupérer la valeur sélectionnée du champ ville
    - avoir un tableau de correspondance ville -> code postal
-
-### form 

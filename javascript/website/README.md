@@ -4,6 +4,25 @@ Note générale
 Il est important de vous aider des petits tutoriels que l'on peut trouver sur internet
 https://www.w3schools.com/howto/default.asp
 
+API (appels AJAX)
+==================
+Le site fourni une API JSON via l'url /modules/ajax/04-controller.php?action=NOM_ACTION
+Où NON_ACTION est le nom de l'action souhaitée pour le moment le fichier 04-controller.php
+contient unique listeVilles et listeUsers
+
+### Exercice 1
+En tant que développeur je veux pouvoir créer une nouvelle action qui me permet
+de récupérer la liste des albums du groupe musicband au format JSON
+
+Page discographie
+==================
+
+### Exercice 1 Création de la page
+
+- En tant que développeur j'ai besoin d'un module discographie et les fichiers nécessaires à son fonctionnement
+- En tant que développeur je veux afficher la page discographie avec les albums (voir la page produits par exemple)
+
+
 Barre de navigation
 ===================
 

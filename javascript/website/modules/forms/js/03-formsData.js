@@ -8,25 +8,27 @@
 
 /**
  * Recupère la liste des villes par une requête HTTP GET synchrone
- *@TODO précharger les données
- *@TODO appeler la fonction du framework
  */
 function getListeVilles() {
-  let settings = {
-                   "async": false,
-                   "data":"",
-                   "response":""
-                 };
-  //la fonction ajaxRequest appel une requete synchrone
-  MUSICBAND.query.get("/modules/ajax/listeVilles.php",
-              settings,
-              function(content, settings) {
-                //l'objet settings est modifié par la fonction callback
-                settings.response = JSON.parse(content);
-              });
+  let listeVilles = MUSICBAND.session.get("listeVilles");
+  if (!listeVilles) {
+    let settings = {
+                     "async": false,
+                     "data":"",
+                     "response":""
+                   };
+    //la fonction ajaxRequest appel une requete synchrone
+    MUSICBAND.query.get("/modules/ajax/listeVilles.php",
+                settings,
+                function(content, settings) {
+                  //l'objet settings est modifié par la fonction callback
+                  settings.response = JSON.parse(content);
+                });
+    MUSICBAND.session.set("listeVilles", settings.response);
 
-   let listeVilles = settings.response;
-   return listeVilles;
+    listeVilles = settings.response;
+    }
+    return listeVilles;
 }
 
 /**

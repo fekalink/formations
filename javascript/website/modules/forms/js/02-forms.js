@@ -47,6 +47,7 @@ function myCallbackSubmit(e) {
  */
 function showZipCode(e) {
   let ville = this.options[this.options.selectedIndex].value;
+  //DOM navigation https://www.w3schools.com/js/js_htmldom_navigation.asp
   let zipInput = this.parentNode.querySelector("input[name=zipcode]");
   //recuperer le zipcode de la ville sélectionnée
   let zipcode = getAttributeValueVille(ville, "zipcode");

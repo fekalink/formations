@@ -1,0 +1,37 @@
+<!--
+Ce fichier est une évolution du fichier 01-formselectfillup
+ - Externatlisation du code javascript
+ -
+-->
+<DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+ <!-- NEW utilisation du framework -->
+ <script src="/js/03-framework.js"></script>
+ <!-- @TODO Ces inclusions de script devraient se faire via la configuration config.js du framework -->
+ <script src="/libraries/w3c/w3.js"></script>
+ <script src="js/04-forms.js"></script>
+ <script src="js/04-formsData.js"></script>
+</head>
+<body>
+    <form id="myForm" action="" method="POST">
+         <label for="foo">FOO</label>
+         <input type="radio" name="foo" value="1" placeholder="" checked="checked" />
+         <input type="radio" name="foo" value="0" /><br />
+         <label for="bar">BAR</label>
+         <input type="text" name="bar" value="xxx" /><br />
+         <label for="email">Email</label>
+         <input type="email" name="email" value="" placeholder="example@domaine.org"></input><br />
+         <label for="ville">Ville</label>
+         <select id="listeVilles" name="ville">
+             <option w3-repeat="villes" value="{{value}}">{{name}}</option>
+         </select>
+         <input type="text" name="zipcode" value="" readonly> </input>
+          <br />
+         <label for="conditions">Accepter Conditions générales</label>
+         <input type="checkbox" name="conditions" /><br />
+        <input type="submit" value="Envoyer"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,110 @@
+$col-bg: #f3f3f3;
+$col-outer-box: #bbb;
+$sp: 40px;
+
+html {
+    //pointer-events: none;
+}
+body {
+    margin: 20px 0 0;
+    background-color: $col-bg;
+    color: #9a9796;
+    //pointer-events: none;
+
+    display: flex;
+    > * {
+        flex: 0 0 auto;
+        &:first-child {
+            margin-right: 20px;
+        }
+    }
+    justify-content: center;
+    align-items: flex-start;
+
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.box {
+    display: inline-block;
+    font-size: 0;
+    padding: $sp;
+
+    .inner {
+        padding: 0;
+        width: $sp;
+        height: $sp;
+    }
+
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    position: relative;
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        width: $sp;
+        line-height: $sp;
+        text-align: center;
+
+        font-size: 14px;
+        //font-family: monospace;
+
+        color: #000;
+
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+}
+
+body > .box {
+    background-color: $col-outer-box;
+    &::after {
+        content: 'b0';
+        opacity: 1;
+    }
+    > .box:hover {
+        background-color: lighten($col-outer-box, 5%);
+        &::after {
+            content: 'b1';
+            opacity: 1;
+        }
+        > .box:hover {
+            background-color: lighten($col-outer-box, 10%);
+                &::after {
+                content: 'b2';
+                opacity: 1;
+            }
+            > .box:hover {
+                background-color: lighten($col-outer-box, 15%);
+                &::after {
+                    content: 'b3';
+                    opacity: 1;
+                }
+                > .box:hover {
+                    background-color: lighten($col-outer-box, 20%);
+                    &::after {
+                        content: 'b4';
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+    th, td {
+        padding: 5px;
+    }
+    th {
+        padding-top: 0;
+        text-align: left;
+    }
+    &.empty tbody > tr:first-child {
+        text-align: center;
+    }
+}

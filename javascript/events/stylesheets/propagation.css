@@ -1,0 +1,113 @@
+/* line 8, ../sass/propagation.scss */
+body {
+  margin: 20px 0 0;
+  background-color: #f3f3f3;
+  color: #9a9796;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: monospace;
+  font-size: 13px;
+}
+/* line 15, ../sass/propagation.scss */
+body > * {
+  flex: 0 0 auto;
+}
+/* line 17, ../sass/propagation.scss */
+body > *:first-child {
+  margin-right: 20px;
+}
+
+/* line 28, ../sass/propagation.scss */
+.box {
+  display: inline-block;
+  font-size: 0;
+  padding: 40px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+/* line 33, ../sass/propagation.scss */
+.box .inner {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+/* line 43, ../sass/propagation.scss */
+.box::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* line 62, ../sass/propagation.scss */
+body > .box {
+  background-color: #bbb;
+}
+/* line 64, ../sass/propagation.scss */
+body > .box::after {
+  content: 'b0';
+  opacity: 1;
+}
+/* line 68, ../sass/propagation.scss */
+body > .box > .box:hover {
+  background-color: #c8c8c8;
+}
+/* line 70, ../sass/propagation.scss */
+body > .box > .box:hover::after {
+  content: 'b1';
+  opacity: 1;
+}
+/* line 74, ../sass/propagation.scss */
+body > .box > .box:hover > .box:hover {
+  background-color: #d5d5d5;
+}
+/* line 76, ../sass/propagation.scss */
+body > .box > .box:hover > .box:hover::after {
+  content: 'b2';
+  opacity: 1;
+}
+/* line 80, ../sass/propagation.scss */
+body > .box > .box:hover > .box:hover > .box:hover {
+  background-color: #e1e1e1;
+}
+/* line 82, ../sass/propagation.scss */
+body > .box > .box:hover > .box:hover > .box:hover::after {
+  content: 'b3';
+  opacity: 1;
+}
+/* line 86, ../sass/propagation.scss */
+body > .box > .box:hover > .box:hover > .box:hover > .box:hover {
+  background-color: #eeeeee;
+}
+/* line 88, ../sass/propagation.scss */
+body > .box > .box:hover > .box:hover > .box:hover > .box:hover::after {
+  content: 'b4';
+  opacity: 1;
+}
+
+/* line 98, ../sass/propagation.scss */
+table {
+  border-collapse: collapse;
+}
+/* line 100, ../sass/propagation.scss */
+table th, table td {
+  padding: 5px;
+}
+/* line 103, ../sass/propagation.scss */
+table th {
+  padding-top: 0;
+  text-align: left;
+}
+/* line 107, ../sass/propagation.scss */
+table.empty tbody > tr:first-child {
+  text-align: center;
+}

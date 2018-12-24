@@ -4,8 +4,19 @@ Note générale
 Il est important de vous aider des petits tutoriels que l'on peut trouver sur internet
 https://www.w3schools.com/howto/default.asp
 
+Les fichiers préfixés d'un numéro correspondent au numéro de l'étape d'avancement
+du travail (version).
+Tous les fichiers 03 par exemple vont ensemble. Si il n'existe pas de fichier de
+la même version :
+  - ex 01-forms.js:  n'existe pas car le js est inclus dans le 01-forms.html
+  - ex 02-framework.js n'existe pas car on utilisait global.js
+  - controller.php n'existe pas avant la version 03 car on ne l'utilisait pas
+  - un fichier 02 peut inclure un autre fichier 01, si ce dernier n'a subit de mdiifications
+  - etc...
+
 API (appels AJAX)
 ==================
+
 Le site fourni une API JSON via l'url /modules/ajax/04-controller.php?action=NOM_ACTION
 Où NON_ACTION est le nom de l'action souhaitée pour le moment le fichier 04-controller.php
 contient unique listeVilles et listeUsers
@@ -13,6 +24,9 @@ contient unique listeVilles et listeUsers
 ### Exercice 1
 En tant que développeur je veux pouvoir créer une nouvelle action qui me permet
 de récupérer la liste des albums du groupe musicband au format JSON
+
+### Exercice 2
+
 
 
 Page discographie
@@ -107,22 +121,26 @@ Session
 
 ### Stockage des données dans le navigateur
 
-Le localStorage permet de stocker des données relative à la navigation courante
+Le localStorage permet de stocker des données relative à la navigation courante.
 Nous avons besoin de savoir si l'utilisateur courant est anonyme ou non (connecté)
 
 ### Cookies et session
 
- - comment distinguer un utilisateur connecté de l'utilsateur anonyme ?
+ - comment distinguer un utilisateur connecté de l'utilisateur anonyme ? (par un cookie de session)
 
  - comment stocker les données d'un utilisateur donné et s'en souvenir après
  déconnexion/reconnexion ?
 
- - Notion d'indentifiant, que choisir comme identifiant ?
+ - Notion d'identifiant, que choisir comme identifiant ?
+      - essayer avec un entier
+      - une chaine plus complexe (hash sha128 par exemple)
 
 Modularisation
 ==============
 
-Eviter les copier de coller de code html/js
+Eviter les copier de coller de code html/js, le framework permet de déclarer des
+"components" dans la configuration. Ce sont des morceaux de code html de l'on peut
+injecter dans les pages avec leur propre js et css (cf config.js slideshow)
 
 ### Exercice 1
 
@@ -143,3 +161,9 @@ Refactoring
 
 - En tant que développeur je veux utiliser les classes plutôt que les prototypes
 pour la déclaration de mes classes.
+
+
+### Exercice 2 :
+
+- En tant que développeur je veux utiliser les promesses (new Promise()) pour effectuer
+les actions asynchrones (pouvoir les executer en cascade plus facilement)

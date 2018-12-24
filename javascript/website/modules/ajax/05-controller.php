@@ -2,8 +2,10 @@
 /**
 *Ceci est une mini API. Ce fichier est appelé Controleur
 *car c'est lui qui gère les requetes et réponses
+* Les données sont chargées par l'utilsation d'une classe prévue à cet effet
 */
 
+require_once($_SERVER["DOCUMENT_ROOT"] . "/data/05-DataManager.php");
 
 class Status {
 
@@ -68,65 +70,38 @@ class APIRequest
 
 }
 
-//unused
-$availableActions = [
-   "listeVilles" => true,
-   "listeUsers" => true,
-];
-
 
 //l'URL doit contenir la paramètre action (http://dev.www.musicband.org/04-controller.php?action=listeUsers)
-
 $status = new Status();
 $api = APIRequest::getInstance();
 $action = $api->get('action');
 
+$dm = new DataManager();
+
 switch ($action) {
-  //première méthode non robuste
+
   case 'listeVilles':
-    $content = '
-    {
-      "villes": [
-        { "name": "Mulhouse", "value": "mulhouse", "zipcode": 68000, "logo":"image/mulhouse.png" },
-        { "name": "Grenoble", "value": "grenoble", "zipcode": 38000, "logo":"image/gre.png" },
-        { "name": "Paris", "value": "paris", "zipcode": 75000,"logo":"image/paris.png" },
-        { "name": "Lyon", "value": "lyon", "zipcode": 69000, "logo":"image/lyon.png" }
-      ]
-    }
-    ';
+    $content = $dm->getData('cities');
     $status->setMessage("OK");
   break;
 
-  //deuxième méthode robuste
   case 'listeUsers':
-    $content = [
-        "users" => [
-             [
-              "name" => "Garibaldi",
-              "forname" => "Michel",
-              "birthdate" => "1957/06/12",
-              "city" => "Mulhouse",
-            ],
-            [
-              "name" => "Hiboux",
-              "forname" => "Antoine",
-              "birthdate" => "1992/01/06",
-              "city" => "Grenoble",
-            ]
-        ],
-    ];
+    $content = $dm->getData('users');
+    $status->setMessage("OK");
+  break;
 
-    $content = json_encode($content);
+  case 'listeProduits':
+    $content = $dm->getData('products');
     $status->setMessage("OK");
   break;
 
   default:
     $content = "Action non reconnue";
     $status->setCode(Status::KO);
-    $status->setMessage("Unknwon Action");
+    $status->setMessage("Unknown Action");
   break;
 }
 
 header('Content-type: application/json');
 header('X-JSON-ERROR: ' + json_encode($status));
-echo $content;
+echo json_encode($content);

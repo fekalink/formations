@@ -47,60 +47,6 @@
  "menu" : [
    { "Boutique" : "/modules/products/products.html"},
    { "Nos Fans" : "/modules/users/users.html" }
-  ],
- "products" : [
-    {
-      "id": 1,
-      "name":"Notre album",
-      "price": 20,
-      "text": "Notre nouvel album est un voyage au coeur de ce qui fait de nous ...",
-      "image": "/modules/products/images/album.jpg"
-
-    },
-    {
-      "id": 2,
-      "name":"T-shirt",
-      "price": 25,
-      "text": "Soutenez-nous et faites-nous connaître ",
-      "image": "/modules/products/images/tshirt.jpg"
-
-    },
-    {
-      "id": 3,
-      "name":"Autocollant",
-      "price": 5,
-      "text": "Notre engagement",
-      "image": "/modules/products/images/autcollant.jpg"
-    }
-  ],
-  "users" : [
-    {
-      "id": 1,
-      "name":"Galinette",
-      "forname":"Arthur",
-      "age":"32",
-      "city":"Grenoble"
-    },
-    {
-      "id": 2,
-      "name":"Boubounette",
-      "forname":"Mimie",
-      "age":"14",
-      "city":"Valence"
-    },
-    {
-      "id": 3,
-      "name":"Lanterne",
-      "forname":"Céline",
-      "age":"24",
-      "city":"Crest"
-    },
-    {
-      "id": 4,
-      "name":"Rougeon",
-      "forname":"Antoine",
-      "age":"52",
-      "city":"Angers"
-    }
   ]
+
 }

@@ -178,6 +178,7 @@ MUSICBAND.query = {
 
    /**
     * Permet de lancer des requetes synchrones et asynchrones
+    *@TODO utilser Promise()
     */
   exec: function(destination, settings, callback) {
       if (settings.async !== false) {

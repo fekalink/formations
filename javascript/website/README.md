@@ -28,7 +28,6 @@ de récupérer la liste des albums du groupe musicband au format JSON
 ### Exercice 2
 
 
-
 Page discographie
 ==================
 
@@ -104,32 +103,45 @@ Page panier
 Page fan club
 =============
 
-### Exercice 1
+Un utilisateur du site n'est pas forcément un fan. La structure de données est-elle suffisante
+pour faire la distinction entre un fan et un utilisateur lamba ?
+
+### Exercice 1 (intermédiaire)
 
 - En tant qu'utilisateur anonyme je veux afficher la liste des fans inscrits sur le site
 
-### Exercice 2
+### Exercice 2 (intermédiaire)
 
 - En tant qu'utilisateur je veux pouvoir afficher les détails du profil du fan sélectionné
 
-### Exercice 3
+### Exercice 3 (difficile)
 
-- En tant qu'utilisateur connecté je veux pouvoir modifier mon profil
+- En tant qu'utilisateur connecté je veux pouvoir modifier mon profil (localStorage)
+   - étape 1 : faire une page à part qui envoie les données en POST et écrit dans le localStorage
+   - étape 2 : soumission asynchrone (avec la fonction du framework)
+   - étape 3 : soumission asynchrone avec formData et Promise()
+   - étape 4 : faire un component formulaire
+               qui s'affiche en fenetre modale ou popup,
+
 
 Session
 ==============
 
-### Stockage des données dans le navigateur
+### Exercice 1 : Stockage des données dans le navigateur
 
 Le localStorage permet de stocker des données relative à la navigation courante.
 Nous avons besoin de savoir si l'utilisateur courant est anonyme ou non (connecté)
 
-### Cookies et session
+  - Existe-il déjà des données dans le localStorage si oui lesquelles ?
 
- - comment distinguer un utilisateur connecté de l'utilisateur anonyme ? (par un cookie de session)
+  - Comment stocker les données d'un utilisateur donné et s'en souvenir après
+  déconnexion/reconnexion ?
 
- - comment stocker les données d'un utilisateur donné et s'en souvenir après
- déconnexion/reconnexion ?
+### Exercice Cookies
+
+ - Comment distinguer un utilisateur connecté de l'utilisateur anonyme ?
+ - Voyez-vous un cookie qqpart dans la console ? les cookies appartiennent à une requête (facile)
+
 
  - Notion d'identifiant, que choisir comme identifiant ?
       - essayer avec un entier
@@ -145,25 +157,29 @@ injecter dans les pages avec leur propre js et css (cf config.js slideshow)
 ### Exercice 1
 
 Identifier les zones html qui sont partagées par toutes les pages du site
- - donner une liste des modules à créer
- - existe-t-il un module avec une présentation particulière par rapport aux autres ?
-   si oui en quoi est-il différents des autres différence ?
+ - donner une liste des modules à créer (facile)
+ - configurer le menu pour qu'il soit appelé comme un component (intermédiaire)
 
 ### Exercice 2
 
- module formulaire de connexion (dans le module session ? KISS ?)
+
 
 
 Refactoring
 =============
 
-### Exercice 1 :
+### Exercice 1 : (facile)
 
 - En tant que développeur je veux utiliser les classes plutôt que les prototypes
 pour la déclaration de mes classes.
 
-
-### Exercice 2 :
+### Exercice 2 : (difficile)
 
 - En tant que développeur je veux utiliser les promesses (new Promise()) pour effectuer
 les actions asynchrones (pouvoir les executer en cascade plus facilement)
+
+### Exercice 3 : (difficile)
+
+- En tant que développeur je veux capturer l'événement de mise à jour des données
+dans le localStorage pour mettre à jour les pages qui affiches ses données
+(listes produits du panier par exemple)

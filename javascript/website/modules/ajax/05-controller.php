@@ -96,12 +96,12 @@ switch ($action) {
   break;
 
   default:
-    $content = "Action non reconnue";
+    $content["message"] = "Action non reconnue";
     $status->setCode(Status::KO);
     $status->setMessage("Unknown Action");
   break;
 }
 
 header('Content-type: application/json');
-header('X-JSON-ERROR: ' + json_encode($status));
+header('X-Json-Error: ' + json_encode($status));
 echo json_encode($content);

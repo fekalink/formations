@@ -8,17 +8,17 @@
  "scripts" : [
      "/libraries/jquery/jquery-3.3.1.min.js",
      "/libraries/w3c/w3.js",
-     "/modules/menu/js/menu.js"
+     "/modules/menu/js/05-menu.js"
  ],
  "pages" : [
      {
-       "name" : "users.html",
-       "scripts" : ["js/users.js", "js/init.js"],
+       "name" : "05-users.html",
+       "scripts" : ["js/05-users.js", "js/init.js"],
        "css": ["css/forms.css", "css/users.css"]
 
      },
      {
-       "name": "profile.html",
+       "name": "05-profile.html",
        "scripts": [
                     "https://cdn.klokantech.com/osmnames/v1/autocomplete.js",
                     "js/geoloc-osm-input.js"
@@ -30,13 +30,19 @@
        ]
      },
      {
-       "name": "products.html",
-       "scripts": ["js/products.js"],
+       "name": "05-products.html",
+       "scripts": ["js/05-products.js"],
        "css":["css/products.css"]
+     },
+     {
+       "name": "05-cart.html",
+       "scripts": ["js/05-cart.js"],
+       "css":[]
      }
   ],
   "components": [
     {
+      "active": 1,
       "src": "/modules/slideshow/slideshow.html",
       "target": "#header",
       "scripts" : ["/modules/slideshow/js/slideshow.js"],
@@ -45,8 +51,9 @@
   ],
 
  "menu" : [
-   { "Boutique" : "/modules/products/products.html"},
-   { "Nos Fans" : "/modules/users/users.html" }
+   { "Boutique" : "/modules/products/05-products.html" },
+   { "Nos Fans" : "/modules/users/05-users.html" }
+
   ]
 
 }

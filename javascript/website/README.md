@@ -120,8 +120,7 @@ pour faire la distinction entre un fan et un utilisateur lamba ?
    - étape 1 : faire une page à part qui envoie les données en POST et écrit dans le localStorage
    - étape 2 : soumission asynchrone (avec la fonction du framework)
    - étape 3 : soumission asynchrone avec formData et Promise()
-   - étape 4 : faire un component formulaire
-               qui s'affiche en fenetre modale ou popup,
+   - étape 4 : faire un component formulaire qui s'affiche en fenetre modale ou popup
 
 
 Session

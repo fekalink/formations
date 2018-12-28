@@ -1,5 +1,5 @@
 //global configuration
-MUSICBAND.config.load("/config/config.json");
+MUSICBAND.config.load("/config/05-config.json");
 
 /**********************/
 /*  Loading session   */
@@ -12,8 +12,12 @@ if (parseInt(userCookie) > 0) {
   MUSICBAND.session.create(0);
 }
 
-MUSICBAND.session.set("users", MUSICBAND.config.data.users );
-MUSICBAND.session.set("products", MUSICBAND.config.data.products );
+//preload data
+MUSICBAND.data.load("/data/05-users.json", {property:"users"});
+MUSICBAND.session.set("users", MUSICBAND.data.get("users", {property:"users"}));
+
+MUSICBAND.data.load("/data/05-products.json", {property:"products"});
+MUSICBAND.session.set("products", MUSICBAND.data.get("products", {property:"products"}) );
 
 /**********************/
 /* load scripts tags  */
@@ -51,25 +55,29 @@ for (var i=0;i<MUSICBAND.config.data.pages.length;i++) {
 
 //components
 for (var i=0;i<MUSICBAND.config.data.components.length;i++) {
-    for (var j=0;j<MUSICBAND.config.data.components[i].scripts.length;j++) {
-        let src = MUSICBAND.config.data.components[i].scripts[j];
-        console.log("Loading JS "+src);
+    let component = MUSICBAND.config.data.components[i];
+    if (!component.active) {
+      continue;
+    }
+    for (var j=0;j<component.scripts.length;j++) {
+        let src = component.scripts[j];
+        console.log("[INFO] Component loading JS "+ src);
         MUSICBAND.addScript(src);
     }
-    for (var k=0;k<MUSICBAND.config.data.components[i].css.length;k++) {
-        let src = MUSICBAND.config.data.components[i].css[i];
-        console.log("Loading CSS "+src);
+    for (var k=0;k<component.css.length;k++) {
+        let src = component.css[i];
+        console.log("[INFO] Component loading CSS "+ src);
         MUSICBAND.addCSS(src);
     }
-    let src = MUSICBAND.config.data.components[i].src;
-    let targetSelector = MUSICBAND.config.data.components[i].target;
+    let src = component.src;
+    let targetSelector = component.target;
     MUSICBAND.file.includeHTML(src,
                               {
                                 async:false,
                                 target:targetSelector,
                               },
                               function(content, settings) {
-                                document.addEventListener("DOMContentLoaded", function(e) {
+                                window.addEventListener("load", function(e) {
                                   document.querySelector(settings.target).innerHTML = content;
                                 });
                               });

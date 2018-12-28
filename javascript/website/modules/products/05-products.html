@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+	<title>Boutique</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="/js/05-framework.js"></script>
+  <script src="/js/05-init.js"></script>
+
+</head>
+
+<body>
+
+<div class="header">
+  <h1>My Website</h1>
+
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_make_a_website_footer  -->
+  <p>A website created by me.</p>
+</div>
+
+<div id="menu" class="navbar">
+</div>
+<div id="modal-login-form-container">
+<!-- <div w3:includeHTML="/modules/forms/login.html"></div> -->
+</div>
+
+
+<div class="row">
+  <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <h3>More Text</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+		<div id="productlist" class="w3-row-padding">
+
+			<div w3-repeat="products" class="w3-col s4">
+				<div class="card">
+          <img src="{{image}}" style="width:100%">
+          <h1>{{name}}</h1>
+          <p class="price">{{price}} euros</p>
+          <p>{{text}}</p>
+          <p><button class="addtocart" data-product-id="{{id}}">Add to Cart</button></p>
+				</div>
+			</div>
+		</div>
+<!--
+			<div class="w3-col s4">
+				<div class="card">
+					<img src="images/tshirt.jpg" style="width:100%">
+					<h1>T-Shirt</h1>
+					<p class="price">25 euros</p>
+					<p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+					<p><button class="addtocart">Add to Cart</button></p>
+				</div>
+			</div>
+
+			<div class="w3-col s4">
+				<div class="card">
+					<img src="images/autocollant.jpg" style="width:100%">
+					<h1>Sticker</h1>
+					<p class="price">3 euros</p>
+					<p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+					<p><button class="addtocart">Add to Cart</button></p>
+				</div>
+			</div>
+-->
+ </div>
+ <script type="text/javascript">
+  //here it is like onload
+ </script>
+</body>
+
+</html>

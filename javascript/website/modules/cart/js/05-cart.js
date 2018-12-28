@@ -4,7 +4,7 @@ function Cart() {
 }
 
 Cart.prototype = {
-   
+
   products: [],
   totalPrice: 0,
 
@@ -15,7 +15,7 @@ Cart.prototype = {
      this.totalPrice = price;
      return this.totalPrice;
   },
-  
+
   calculateTotal: function() {
      var total = 0;
      for(var i=0;i<this.products.length;i++) {
@@ -31,7 +31,7 @@ Cart.prototype = {
   getProduct: function(productId) {
       return this.products[productId]
   }
-  
+
 };
 
 //INITIALISATION
@@ -44,5 +44,4 @@ var cart = new Cart();
 
 //cart.getTotalPrice();
 
-localStorage.setItem("cart", JSON.stringify(cart));
-
+//localStorage.setItem("cart", JSON.stringify(cart));

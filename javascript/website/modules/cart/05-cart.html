@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/js/05-framework.js"></script>
+  <script src="/js/05-init.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <h1>My Website</h1>
+
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_make_a_website_footer  -->
+  <p>A website created by me.</p>
+</div>
+
+<div id="menu" class="navbar">
+</div>
+<div id="modal-login-form-container">
+<!-- <div w3:includeHTML="/modules/forms/login.html"></div> -->
+</div>
+
+<div class="row">
+  <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <h3>More Text</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+    <div class="w3-container">
+      <h2>Produits</h2>
+      <table id="cartlist" class="w3-table-all">
+        <tr>
+          <th>Product Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>quantity</th>
+        </tr>
+
+        <tr w3-repeat="cartlist">
+          <td>{{id}}</td>
+          <td>{{name}}</td>
+          <td>{{price}}</td>
+          <td>{{quantity}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

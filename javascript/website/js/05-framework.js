@@ -131,18 +131,52 @@ MUSICBAND.config = {
 
   data : {},
 
-  load: function(file) {
+  load: function(file, settings={}) {
       MUSICBAND.query.getJSON(
         file,
-        {},
-        function(data) {
-          MUSICBAND.config.data = JSON.parse(data);
+        settings,
+        function(data, settings) {
+          data = JSON.parse(data);
+          if (settings.property) {
+              MUSICBAND.config.data[settings.property] = data;
+          } else {
+              MUSICBAND.config.data = data;
+          }
           MUSICBAND.log("Config loaded", "INFO");
           //MUSICBAND.log(data, "INFO");
         }
       );
   }
 
+};
+
+MUSICBAND.data = {
+
+  data:{},
+
+  set: function(path, data) {
+      //@todo explode dotted path and loop on it
+      this.data[path] = data;
+  },
+
+  get: function(path) {
+      //@todo explode dotted path and loop on it
+      return this.data[path];
+  },
+
+  load: function(src, settings={}) {
+    MUSICBAND.query.getJSON(
+        src,
+        settings,
+        function(data, settings) {
+          data = JSON.parse(data);
+          if (settings.property) {
+            MUSICBAND.data.data[settings.property] = data;
+          } else {
+            MUSICBAND.data.data = data;
+          }
+        });
+  }
 };
 
 
@@ -188,6 +222,9 @@ MUSICBAND.query = {
         console.log("[WARNING] Synchronous query " + destination);
       }
       var xobj = new XMLHttpRequest();
+      if ( !settings.dataType ) {
+        settings.dataType = 'text/html';
+      }
       xobj.overrideMimeType(settings.dataType);
       try {
         xobj.open(settings.method, destination, settings.async);

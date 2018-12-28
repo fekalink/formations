@@ -1,4 +1,4 @@
-//@TODO Réecrire en class 
+  //@TODO Réecrire en class 
 var MUSICBAND = MUSICBAND || {};
 
 MUSICBAND = {

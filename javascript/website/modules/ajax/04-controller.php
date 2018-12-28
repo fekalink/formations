@@ -121,9 +121,10 @@ switch ($action) {
   break;
 
   default:
-    $content = "Action non reconnue";
+    $content["message"] = "Action non reconnue";
     $status->setCode(Status::KO);
     $status->setMessage("Unknwon Action");
+    $content = json_encode($content);
   break;
 }
 

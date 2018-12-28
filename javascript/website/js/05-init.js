@@ -19,6 +19,12 @@ MUSICBAND.session.set("users", MUSICBAND.data.get("users", {property:"users"}));
 MUSICBAND.data.load("/data/05-products.json", {property:"products"});
 MUSICBAND.session.set("products", MUSICBAND.data.get("products", {property:"products"}) );
 
+//@TODO should be part of a generic init procedure from module configuration
+let cart = MUSICBAND.session.get("cart")
+if (!cart) {
+  MUSICBAND.session.set("cart", {"products":[]});
+}
+
 /**********************/
 /* load scripts tags  */
 /**********************/

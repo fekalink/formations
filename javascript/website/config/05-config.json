@@ -6,6 +6,7 @@
     "/css/global.css"
  ],
  "scripts" : [
+     "/libraries/babel/babel.min.js",
      "/libraries/jquery/jquery-3.3.1.min.js",
      "/libraries/w3c/w3.js",
      "/modules/menu/js/05-menu.js"
@@ -31,18 +32,18 @@
      },
      {
        "name": "05-products.html",
-       "scripts": ["js/05-products.js"],
+       "scripts": ["/modules/cart/js/05-cart.js", "js/05-products.js"],
        "css":["css/products.css"]
      },
      {
        "name": "05-cart.html",
-       "scripts": ["js/05-cart.js"],
+       "scripts": ["js/05-cart.js", "js/05-init.js"],
        "css":[]
      }
   ],
   "components": [
     {
-      "active": 1,
+      "active": 0,
       "src": "/modules/slideshow/slideshow.html",
       "target": "#header",
       "scripts" : ["/modules/slideshow/js/slideshow.js"],

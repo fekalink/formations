@@ -1,47 +1,56 @@
 
-function Cart() {
-
-}
-
-Cart.prototype = {
-
+class Cart
+{
+  /*
   products: [],
   totalPrice: 0,
-
-  constructor: Cart,
-
-  getTotalPrice: function() {
-     var price = this.calculateTotal();
-     this.totalPrice = price;
-     return this.totalPrice;
-  },
-
-  calculateTotal: function() {
-     var total = 0;
-     for(var i=0;i<this.products.length;i++) {
-         var product = this.products[i];
-         total += product.price;
-     }
-     return total;
-  },
-  addProduct: function(product) {
-    this.products[product.id] = product;
-    console.log(" [INFO] Product " + product.id + "added to the cart" );
-  },
-  getProduct: function(productId) {
-      return this.products[productId]
+  */
+  constructor() {
+    this.products = [];
   }
 
-};
+  hydrate(jsonObjectCart) {
+    this.products = jsonObjectCart.products;
+  }
 
-//INITIALISATION
+  getTotalPrice() {
+    var price = this.calculateTotal();
+    this.totalPrice = price;
+    return this.totalPrice;
+  }
 
-var cart = new Cart();
+  calculateTotal() {
+    var total = 0;
 
-//cart.addProduct(product1)
-//cart.addProduct(product2)
-//cart.addProduct(product3)
+    for(var i=0;i<this.products.length;i++) {
+      var product = this.products[i];
+      total += product.price*product.quantity;
+    }
+    return total;
+  }
+  addProduct(product) {
 
-//cart.getTotalPrice();
+    //on cherche si le produit est deja dans le panier
+    let p = this.products.find(function(object) {
+      return object.id == product.id;
+    });
+    if (p) {
+    //si le produit est déjà dans le panier on incremente la quantité
+    this.products = this.products.map(function(object, key, list) {
+        if (object.id == p.id) {
+          object.quantity += 1;
+          console.log("Existing product added to cart");
+        }
+        return object;
+      });
+    } else {
+      console.log("First time product in the cart !")
+      product.quantity = 1;
+      this.products.push(product);
+    }
+  }
+  getProduct(productId) {
+    return this.products[productId];
+  }
 
-//localStorage.setItem("cart", JSON.stringify(cart));
+}

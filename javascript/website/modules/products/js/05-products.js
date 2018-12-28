@@ -1,59 +1,84 @@
-function Product(id) {
+
+
+class Product {
+
+  /*
+  id = -1;
+  price = 0;
+  name = "";
+  image = "";
+  text ="";
+  */
+
+  constructor(id = 0) {
     this.id = id;
-    this.price = 0;
-    this.name = "Product Name";
-    this.text = "Product description";
-}
+  }
 
-Product.prototype = {
+  hydrate(productJSONObject) {
+    this.id = productJSONObject.id;
+    this.price = productJSONObject.price;
+    this.name = productJSONObject.name;
+    this.image = productJSONObject.image;
+  }
 
-  id:0,
-  price:0,
-  name:"",
-  image:"",
-  text:"",
-
-  constructor: Product,
-
-  setPrice : function(price) {
+  setPrice(price) {
     this.price = price;
-  },
-  getPrice : function() {
+  }
+  getPrice() {
     return this.price;
-  },
-  setWeight: function(weight) {
+  }
+  setWeight(weight) {
     this.weight = weight;
-  },
-  getWeight: function() {
+  }
+  getWeight() {
     return this.weight;
-  },
-  setImage: function() {
+  }
+  setImage() {
     this.image = image;
-  },
-  getImage: function() {
+  }
+  getImage() {
     return this.image;
-  },
-  setText: function(text) {
+  }
+  setText(text) {
     this.text = text;
-  },
-  getText: function() {
+  }
+  getText() {
     return this.text;
   }
 
 }
 
-/*
- * PURE JS
-document.getElementById('anchor').addEventListener('click', function() {
-    console.log('anchor');
-});
-*/
 
-$(document).ready(function(data, event) {
-  //TODO dynamiser la liste produit
+
+window.addEventListener("load", function(data, event) {
+  //affichage des produits
   var products = MUSICBAND.session.get("products");
   w3.displayObject("productlist", products);
-  $('.addtocart').click(function(e) {
-      console.log($(this));
-  });
+
+  //écoute du click sur la liste des produits
+  var productList = document.querySelectorAll(".addtocart");
+  productList.forEach(
+    function(currentNode, index, nodeList) {
+        currentNode.addEventListener("click", function(e) {
+          let productId = this.getAttribute("data-product-id");
+          //recupération des données du produit
+          let products = MUSICBAND.session.get("products").products;
+          let productJSONObject = products.find(function(product) {
+            return product.id == productId;
+          });
+
+          let product = new Product();
+          product.hydrate(productJSONObject);
+
+          let cartJSONObject = MUSICBAND.session.get("cart");
+          let cart = new Cart();
+
+          cart.hydrate(cartJSONObject);
+          cart.addProduct(product);
+          //overwrite cart storage
+          MUSICBAND.session.set("cart", cart)
+
+        });
+    }
+  );
 });

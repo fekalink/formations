@@ -2,8 +2,9 @@
 "products" : [
    {
      "id": 1,
-     "name":"Notre album",
+     "name":"Nouvel album",
      "price": 20,
+     "shorttext": "Notre nouvel album",
      "text": "Notre nouvel album est un voyage au coeur de ce qui fait de nous ...",
      "image": "/modules/products/images/album.jpg"
 
@@ -12,6 +13,7 @@
      "id": 2,
      "name":"T-shirt",
      "price": 25,
+     "shorttext": "Soutenez-nous et faites-nous connaître ",
      "text": "Soutenez-nous et faites-nous connaître ",
      "image": "/modules/products/images/tshirt.jpg"
 
@@ -20,8 +22,17 @@
      "id": 3,
      "name":"Autocollant",
      "price": 5,
+     "shorttext": "Notre engagement",
      "text": "Notre engagement",
      "image": "/modules/products/images/autocollant.jpg"
+   },
+   {
+     "id": 4,
+     "name":"Album Vinyl",
+     "price": 12,
+     "text": "Notre Vinyl Collector",
+     "shorttext": "Notre Vinyl Collector",
+     "image": "/modules/products/images/blue-marble-west.jpg"
    }
  ]
 }

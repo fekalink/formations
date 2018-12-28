@@ -6,6 +6,10 @@
   font-family: arial;
 }
 
+.card img {
+  max-height:280px;
+}
+
 .price {
   color: grey;
   font-size: 22px;

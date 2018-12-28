@@ -19,6 +19,12 @@ class Product {
     this.price = productJSONObject.price;
     this.name = productJSONObject.name;
     this.image = productJSONObject.image;
+    this.text = productJSONObject.text;
+    let shorttext = "";
+    if ( !productJSONObject.shorttext ) {
+      shorttext =  this.text.substring(0,25);
+    }
+    this.shorttext = shorttext;
   }
 
   setPrice(price) {

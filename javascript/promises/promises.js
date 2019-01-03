@@ -31,16 +31,6 @@ promise1.then(
     }
 );
 
-/*************************/
-/*   Chainage Complexe   */
-/*************************/
-
-class MyPromise extends Promise {
-  constructor(callback) {
-    super(callback);
-  }
-}
-
 
 console.log("Chainage complexe");
 new Promise(function(resolve, reject) {
@@ -87,4 +77,14 @@ new Promise(function(resolve, reject) {
 });
 
 
+/*************************/
+/*  Definir sa promesse  */
+/*************************/
+
+//utile pour pouvoir étendre le fonctionnement natif
+class MyPromise extends Promise {
+  constructor(callback) {
+    super(callback);
+  }
+}
 m = new MyPromise(function(resolve, reject) { resolve('toto')}).then(function(result) {alert(result)});

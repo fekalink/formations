@@ -1,4 +1,3 @@
-//une fois le dom chargé
 window.addEventListener("load", function() {
 
   var

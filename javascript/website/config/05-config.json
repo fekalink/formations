@@ -37,7 +37,7 @@
      },
      {
        "name": "05-cart.html",
-       "scripts": ["js/05-cart.js", "js/05-init.js"],
+       "scripts": ["/modules/products/js/05-products.js", "js/05-cart.js", "js/05-init.js"],
        "css":[]
      }
   ],

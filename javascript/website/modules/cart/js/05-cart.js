@@ -28,6 +28,7 @@ class Cart
     }
     return total;
   }
+
   addProduct(product) {
 
     //on cherche si le produit est deja dans le panier
@@ -49,6 +50,28 @@ class Cart
       this.products.push(product);
     }
   }
+
+  delProduct(product) {
+    //on cherche si le produit est deja dans le panier
+    let p = this.products.find(function(object) {
+      return object.id == product.id;
+    });
+    if (p) {
+    //si le produit est déjà dans le panier on incremente la quantité
+    this.products = this.products.map(function(object, key, list) {
+        if (object.id == p.id) {
+          object.quantity -= 1;
+          if (object.quantity <= 0) {
+            console.log("Remove product from cart!");
+            list.splice(key, 1);
+            return null;
+          }
+        }
+        return object;
+      });
+    }
+  }
+
   getProduct(productId) {
     return this.products[productId];
   }

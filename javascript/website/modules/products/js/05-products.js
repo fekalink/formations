@@ -82,7 +82,7 @@ window.addEventListener("load", function(data, event) {
           cart.hydrate(cartJSONObject);
           cart.addProduct(product);
           //overwrite cart storage
-          MUSICBAND.session.set("cart", cart)
+          MUSICBAND.session.set("cart", cart);
 
         });
     }

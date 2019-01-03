@@ -22,6 +22,7 @@ Où NON_ACTION est le nom de l'action souhaitée pour le moment le fichier 04-co
 contient unique listeVilles et listeUsers
 
 ### Exercice 1
+
 En tant que développeur je veux pouvoir créer une nouvelle action qui me permet
 de récupérer la liste des albums du groupe musicband au format JSON
 
@@ -41,6 +42,7 @@ Barre de navigation
 ===================
 
 ### Exercice 1
+
 - En tant qu'utilisateur anonyme je veux pouvoir accéder aux pages du site par des liens dans la barre de menu
 
 - En tant que developpeur je veux que tous les fichiers html des modules soient accessibles par un lien dans la barre de menu
@@ -82,6 +84,7 @@ Ergonomie
 ===========
 
 ### Exercice 1
+
 - En tant qu'utilisateur je veux une barre de menu collante (sticky navbar)
 https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
 
@@ -139,7 +142,7 @@ Nous avons besoin de savoir si l'utilisateur courant est anonyme ou non (connect
 ### Exercice Cookies
 
  - Comment distinguer un utilisateur connecté de l'utilisateur anonyme ?
- - Voyez-vous un cookie qqpart dans la console ? les cookies appartiennent à une requête (facile)
+ - Voyez-vous un cookie quelquepart dans la console ? les cookies appartiennent à une requête (facile)
 
 
  - Notion d'identifiant, que choisir comme identifiant ?

@@ -118,9 +118,14 @@ switch ($action) {
         break;
       }
     }
-    $dm->saveData("users", $users);
-    $content = $users;
-    $status->setMessage("OK");
+    try {
+      $dm->saveData("users", $users);
+      $content = $dm->getData("users");
+      $status->setMessage("OK");
+    } catch(Exception $e) {
+      $status->setMessage($e->getMessage);
+      $content = $e;
+    }
   break;
 
   default:
@@ -130,7 +135,6 @@ switch ($action) {
   break;
 }
 
-//header('Content-type: application/json');
+header('Content-type: application/json');
 header('X-Json-Error: ' + json_encode($status));
-//echo json_encode($content);
-echo $content;
+echo json_encode($content);

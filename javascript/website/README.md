@@ -28,7 +28,6 @@ de récupérer la liste des albums du groupe musicband au format JSON
 
 ### Exercice 2
 
-
 Page discographie
 ==================
 
@@ -45,13 +44,14 @@ Barre de navigation
 
 - En tant qu'utilisateur anonyme je veux pouvoir accéder aux pages du site par des liens dans la barre de menu
 
-- En tant que developpeur je veux que tous les fichiers html des modules soient accessibles par un lien dans la barre de menu
+- En tant que développeur je veux que tous les fichiers html des modules soient accessibles par un lien dans la barre de menu
+  - les liens peuvent être désactivable dans le fichier de configuration
 
 ### Exercice 2
 
 - En tant qu'utilisateur je souhaite pouvoir me connecter, en cliquant sur le bouton login
   Coup de pouce : Soumission asynchrone du formulaire, il faut appeler la fonction MUSICBAND.query.post()
-  avec le parametre settings contenant au moins ceci { async:true }. Prenez exemple sur l'existant (forms/*-forms.js)
+  avec le parametre settings contenant au moins ceci { async:true }. Prenez exemple sur l'existant (forms/\*-forms.js)
 
 - En tant que développeur je veux que le bouton login affiche un formulaire de login.
 
@@ -64,8 +64,10 @@ Menu
 
  - En tant que développeur je veux pouvoir configurer mon module de menu depuis je fichier configuration json
 
- - lire la configuration depuis le module pour peupler le code de présentation
+ - Lire la configuration depuis le module pour peupler le code de présentation
 
+  - Quels sont les attributs de chaque lien que je souhaite rendre configurable ?
+  - Quelle fonction ou méthode puis-je écrire pour ajouter un lien dans une page ?
 
 Page produit
 ============

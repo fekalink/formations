@@ -2,7 +2,7 @@
  "OSMKey" : "CQGygA55zVK3GmfQJPpz",
  "css": [
     "/libraries/w3c/w3.css",
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+    "/libraries/font-awesome/font-awesome.min.css",
     "/css/global.css"
  ],
  "scripts" : [
@@ -43,6 +43,7 @@
   ],
   "components": [
     {
+      "name": "slideshow",
       "active": 0,
       "src": "/modules/slideshow/slideshow.html",
       "target": "#header",

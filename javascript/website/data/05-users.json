@@ -5,28 +5,41 @@
       "name":"Galinette",
       "forname":"Arthur",
       "age":"32",
-      "city":"Grenoble"
+      "city":"Grenoble",
+      "postalcode":"38000"
     },
     {
       "id": 2,
       "name":"Boubounette",
       "forname":"Mimie",
       "age":"14",
-      "city":"Valence"
+      "city":"Valence",
+      "postalcode":"26000"
     },
     {
       "id": 3,
       "name":"Lanterne",
       "forname":"Céline",
       "age":"24",
-      "city":"Crest"
+      "city":"Crest",
+      "postalcode":"26300"
     },
     {
       "id": 4,
       "name":"Rougeon",
       "forname":"Antoine",
       "age":"52",
-      "city":"Angers"
+      "city":"Angers",
+      "postalcode":"49000"
+    }
+    ,
+    {
+      "id": 5,
+      "name":"Monon",
+      "forname":"Romain",
+      "age":"12",
+      "city":"Paris",
+      "postalcode":"75011"
     }
   ]
 }

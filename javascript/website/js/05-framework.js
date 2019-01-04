@@ -52,7 +52,7 @@ MUSICBAND.session = {
     },
 
     get : function(key) {
-      var value = JSON.parse(localStorage.getItem(key));      
+      var value = JSON.parse(localStorage.getItem(key));
       return value;
     },
 

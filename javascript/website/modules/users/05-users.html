@@ -20,9 +20,9 @@
 </div>
 
 <div id="modal-login-form-container">
-<!-- <div w3:includeHTML="/modules/forms/login.html"></div> -->
 </div>
-
+<div id="modal-user-profile-container">
+</div>
 <div class="row">
   <div class="side">
       <h2>About Me</h2>
@@ -44,13 +44,15 @@
           <th>Prénom</th>
           <th>Age</th>
           <th>Ville</th>
+          <th>CP</th>
         </tr>
         <tr w3-repeat="users">
           <td>{{name}}</td>
           <td>{{forname}}</td>
           <td>{{age}}</td>
           <td>{{city}}</td>
-          <td><a class="fa fa-address-book" href="javascript:MUSICBAND.users.viewProfile({{id}})"></a></td>
+          <td>{{postalcode}}</td>
+          <td><a data-user-id="{{id}}" class="fa fa-address-book" href="#"></a></td>
         </tr>
       </table>
   </div>

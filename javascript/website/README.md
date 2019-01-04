@@ -167,8 +167,6 @@ Identifier les zones html qui sont partagées par toutes les pages du site
 ### Exercice 2
 
 
-
-
 Refactoring
 =============
 
@@ -187,3 +185,7 @@ les actions asynchrones (pouvoir les executer en cascade plus facilement)
 - En tant que développeur je veux capturer l'événement de mise à jour des données
 dans le localStorage pour mettre à jour les pages qui affiches ses données
 (listes produits du panier par exemple)
+
+### Exercice 4 : (intermédiaire)
+
+- En tant que développeur je veux utiliser les namespaces dans les modules et components pour éviter les collisions, et effets de bord des globales.

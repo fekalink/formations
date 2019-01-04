@@ -64,16 +64,15 @@ class APIRequest
       return $value;
     }
 
+    public function getPostData() {
+      return $this->postData;
+    }
+
     protected function getParam($paramName) {
       if (!empty($this->parameters[$paramName])) {
         return $this->parameters[$paramName];
       }
     }
-
-    protected function getPostData() {
-      return $this->postData;
-    }
-
 
 }
 
@@ -108,23 +107,24 @@ switch ($action) {
     $postData = $api->getPostData();
     $userId = $postData["userId"];
     foreach( $users->users as $key=>$user ) {
+
       if ($user->id == $userId) {
         $user->name = $postData['name'];
         $user->forname = $postData['forname'];
         $user->city = $postData['city'];
         $user->age = $postData['age'];
-        $user->postalcode = $postData['postlcode'];
+        $user->postalcode = $postData['postalcode'];
         $users->users[$key] = $user;
         break;
       }
     }
     try {
-      $dm->saveData("users", $users);
+      $dm->saveData($users, "users");
       $content = $dm->getData("users");
       $status->setMessage("OK");
     } catch(Exception $e) {
-      $status->setMessage($e->getMessage);
-      $content = $e;
+      $status->setMessage($e->getMessage());
+      $content = array();
     }
   break;
 
@@ -136,5 +136,5 @@ switch ($action) {
 }
 
 header('Content-type: application/json');
-header('X-Json-Error: ' + json_encode($status));
+//header('X-Json-Error: ' + json_encode($status));
 echo json_encode($content);

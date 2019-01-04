@@ -31,7 +31,7 @@ class DataManager {
       throw new Exception("Data file not found for {$name}");
     }
     $fileName = $this->dataFiles[$name];
-    $this->writeDataToFile($fileName, $data);
+    $this->writeDataToFile(__DIR__."/../" . $fileName, $data);
   }
 
   protected function writeDataToFile($fileName, $data) {

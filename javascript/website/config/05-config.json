@@ -1,4 +1,7 @@
 {
+ "framework": {
+    "versions" : ["03", "04", "05"]
+ },
  "OSMKey" : "CQGygA55zVK3GmfQJPpz",
  "css": [
     "/libraries/w3c/w3.css",
@@ -51,11 +54,51 @@
       "css"  : ["/modules/slideshow/css/slideshow.css"]
     }
   ],
+ "modules" : [
+   {
+     "activate": 0,
+     "name": "developer",
+     "config": "config.json"
+   }
 
+ ],
  "menu" : [
-   { "Boutique" : "/modules/products/05-products.html" },
-   { "Nos Fans" : "/modules/users/05-users.html" }
+    {
+     "id" : "",
+     "href" : "/modules/products/05-products.html",
+     "class" : "",
+     "text" : "Boutique"
+    },
+    {
+     "href" : "/modules/users/05-users.html",
+     "id" : "",
+     "class" : "",
+     "text" : "Nos Fans"
+    },
+   {
+     "href" : "/modules/cart/05-cart.html",
+     "id" : "",
+     "class" : "",
+     "text" : "Panier"
+    },
+   {
+     "href" : "",
+     "id" : "login-link",
+     "class" : "w3-button w3-green w3-large right",
+     "text" : "Se connecter"
+    },
+   {
+     "href" : "",
+     "id" : "signup-link",
+     "class" : "w3-button w3-blue w3-large right",
+     "text" : "SignUp"
+   },
+   {
+     "href" : "/modules/cart/05-cart.html",
+     "id" : "cart",
+     "class" : "w3-button w3-large right fa fa-shopping-basket",
+     "text" : "Shop"
+    }
 
-  ]
-
+   ]
 }

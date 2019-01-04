@@ -42,9 +42,11 @@ class APIRequest
 {
     protected static $instance;
     protected $parameters;
+    protected $postData;
 
     private function __construct() {
       $this->parameters =  $_GET;
+      $this->postData = $_POST;
     }
 
     public static function getInstance() {
@@ -67,6 +69,11 @@ class APIRequest
         return $this->parameters[$paramName];
       }
     }
+
+    protected function getPostData() {
+      return $this->postData;
+    }
+
 
 }
 
@@ -95,6 +102,27 @@ switch ($action) {
     $status->setMessage("OK");
   break;
 
+  case 'updateUser':
+
+    $users = $dm->getData('users');
+    $postData = $api->getPostData();
+    $userId = $postData["userId"];
+    foreach( $users->users as $key=>$user ) {
+      if ($user->id == $userId) {
+        $user->name = $postData['name'];
+        $user->forname = $postData['forname'];
+        $user->city = $postData['city'];
+        $user->age = $postData['age'];
+        $user->postalcode = $postData['postlcode'];
+        $users->users[$key] = $user;
+        break;
+      }
+    }
+    $dm->saveData("users", $users);
+    $content = $users;
+    $status->setMessage("OK");
+  break;
+
   default:
     $content["message"] = "Action non reconnue";
     $status->setCode(Status::KO);
@@ -102,6 +130,7 @@ switch ($action) {
   break;
 }
 
-header('Content-type: application/json');
+//header('Content-type: application/json');
 header('X-Json-Error: ' + json_encode($status));
-echo json_encode($content);
+//echo json_encode($content);
+echo $content;

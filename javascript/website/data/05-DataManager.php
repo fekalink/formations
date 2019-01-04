@@ -26,6 +26,18 @@ class DataManager {
       return $this->readDataFromFile($fileName);
   }
 
+  public function saveData($data, $name) {
+    if ( empty($this->dataFiles[$name]) ) {
+      throw new Exception("Data file not found for {$name}");
+    }
+    $fileName = $this->dataFiles[$name];
+    $this->writeDataToFile($fileName, $data);
+  }
+
+  protected function writeDataToFile($fileName, $data) {
+    file_put_contents($fileName, json_encode($data));
+  }
+
   protected function readDataFromFile($fileName) {
         $json = file_get_contents($this->documentRoot . '/' . $fileName);
         $dataArray  = json_decode($json);

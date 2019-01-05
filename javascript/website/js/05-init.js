@@ -1,5 +1,7 @@
+frameworkVersion = "05";
+MUSICBAND.log("Framework version is " + frameworkVersion);
 //global configuration
-MUSICBAND.config.load("/config/05-config.json");
+MUSICBAND.config.load("/config/" + frameworkVersion + "-config.json");
 
 /**********************/
 /*  Loading session   */
@@ -13,10 +15,10 @@ if (parseInt(userCookie) > 0) {
 }
 
 //preload data
-MUSICBAND.data.load("/data/05-users.json", {property:"users"});
+MUSICBAND.data.load("/data/" + frameworkVersion + "-users.json", {property:"users"});
 MUSICBAND.session.set("users", MUSICBAND.data.get("users", {property:"users"}));
 
-MUSICBAND.data.load("/data/05-products.json", {property:"products"});
+MUSICBAND.data.load("/data/" + frameworkVersion + "-products.json", {property:"products"});
 MUSICBAND.session.set("products", MUSICBAND.data.get("products", {property:"products"}) );
 
 //@TODO should be part of a generic init procedure from module configuration

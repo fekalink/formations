@@ -223,7 +223,7 @@ MUSICBAND.query = {
       }
       var xobj = new XMLHttpRequest();
       if ( !settings.dataType ) {
-        settings.dataType = 'text/html';
+        //settings.dataType = 'text/html';
       }
       xobj.overrideMimeType(settings.dataType);
       try {

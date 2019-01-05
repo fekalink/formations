@@ -1,28 +1,26 @@
-$(document).ready(function() {
+window.addEventListener("load", function() {
   //insert other subtemplates (components)
 
-  //modal login form (hidden by default)
-  $("#modal-login-form-container").load("/modules/forms/modal-login-form.html", function() {
-     MUSICBAND.addScript("/modules/forms/js/modal-login-form.js");
+  let settings = {
+    "async":true,
+    "targetSelector": "#modal-login-form-container"
+  };
+  MUSICBAND.query.get("/modules/forms/modal-login-form.html", settings, function(responseText, settings) {
+    document.querySelector(settings.targetSelector).innerHTML = responseText;
+    MUSICBAND.addScript("/modules/forms/js/modal-login-form.js");
   });
 
   //main menu in navigation bar
-  $("#menu").load("/modules/menu/05-nav-links.html", function() {
-      //change style right after loading it
-      if (MUSICBAND.session.isLoggedIn()) {
-        $("#login-link").text("Log Out");
-        $("#login-link").toggleClass("w3-green w3-red");
-      }
-
-      $("#login-link").click(function(e) {
-          if (MUSICBAND.session.isLoggedIn()) {
-            MUSICBAND.session.logOut();
-            $("#login-link").toggleClass("w3-red w3-green");
-            $("#login-link").text("Log In");
-          } else {
-            $("#modal-login-form").show();
-          }
-      });
-  });
+  let menu = MUSICBAND.config.data.menu;
+  for (i=0; i < menu.length; i++) {
+    let row = menu[i];
+    let a   = document.createElement("a");
+    a.href  = row.href;
+    a.value =  row.value;
+    a.id    =  row.id;
+    a.text  = row.text;
+    a.setAttribute('class', row.class);
+    document.getElementById("menu").appendChild(a);
+  }
 
 });

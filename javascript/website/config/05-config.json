@@ -17,7 +17,7 @@
  "pages" : [
      {
        "name" : "05-users.html",
-       "scripts" : ["js/05-users.js", "js/init.js"],
+       "scripts" : ["js/init.js", "js/05-users.js"],
        "css": ["css/forms.css", "css/users.css"]
 
      },
@@ -85,7 +85,7 @@
      "href" : "",
      "id" : "login-link",
      "class" : "w3-button w3-green w3-large right",
-     "text" : "Se connecter"
+     "text" : "LogIn"
     },
    {
      "href" : "",
@@ -97,7 +97,7 @@
      "href" : "/modules/cart/05-cart.html",
      "id" : "cart",
      "class" : "w3-button w3-large right fa fa-shopping-basket",
-     "text" : "Shop"
+     "text" : ""
     }
 
    ]

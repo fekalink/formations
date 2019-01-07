@@ -114,10 +114,32 @@ switch ($action) {
         $user->city = $postData['city'];
         $user->age = $postData['age'];
         $user->postalcode = $postData['postalcode'];
+        $user->email = $postData['postalcode'];
         $users->users[$key] = $user;
         break;
       }
     }
+    try {
+      $dm->saveData($users, "users");
+      $content = $dm->getData("users");
+      $status->setMessage("OK");
+    } catch(Exception $e) {
+      $status->setMessage($e->getMessage());
+      $content = array();
+    }
+  break;
+
+  case "createUser":
+    $users = $dm->getData('users');
+    $postData = $api->getPostData();
+    $user = new StdClass();
+    $user->name = $postData['name'];
+    $user->forname = $postData['forname'];
+    $user->city = $postData['city'];
+    $user->age = $postData['age'];
+    $user->postalcode = $postData['postalcode'];
+    $user->email = $postData['email'];
+    $users->users[] = $user;
     try {
       $dm->saveData($users, "users");
       $content = $dm->getData("users");

@@ -70,16 +70,15 @@ window.addEventListener("load", function() {
       e.preventDefault();
     });
     //fermeture de la modale
-    document.querySelectorAll('#modal-profile-form .close').forEach(function(node) {
+    document.querySelectorAll('#modal-signup-form .close').forEach(function(node) {
       node.addEventListener('click', function (e) {
-        document.getElementById('modal-profile-form').style.display = 'none';
+        document.getElementById('modal-signup-form').style.display = 'none';
       })
     });
     //soumission signup form
     document.getElementById('user-signup-form').addEventListener('submit', function(e) {
       e.stopPropagation();
       let formData = new FormData(this);
-      console.log("name = " + formData.get('name'));
       let settings = {
         async:false,
         data: formData

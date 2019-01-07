@@ -7,6 +7,16 @@
 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/data/05-DataManager.php");
 
+class UserValidator {
+
+     public function validate($user) {
+      if (empty($user->email) || empty($user->name)) {
+        throw new Exception("Empty field value email or name are missing");
+      }
+      return true;
+     }
+}
+
 class Status {
 
   public const OK = 0;
@@ -81,7 +91,7 @@ class APIRequest
 $status = new Status();
 $api = APIRequest::getInstance();
 $action = $api->get('action');
-
+$validator = new UserValidator();
 $dm = new DataManager();
 
 switch ($action) {
@@ -102,7 +112,6 @@ switch ($action) {
   break;
 
   case 'updateUser':
-
     $users = $dm->getData('users');
     $postData = $api->getPostData();
     $userId = $postData["userId"];
@@ -114,18 +123,18 @@ switch ($action) {
         $user->city = $postData['city'];
         $user->age = $postData['age'];
         $user->postalcode = $postData['postalcode'];
-        $user->email = $postData['postalcode'];
+        $user->email = $postData['email'];
         $users->users[$key] = $user;
         break;
       }
     }
     try {
+      $validator->validate($user);
       $dm->saveData($users, "users");
       $content = $dm->getData("users");
       $status->setMessage("OK");
     } catch(Exception $e) {
-      $status->setMessage($e->getMessage());
-      $content = array();
+      $content["error"] = $e->getMessage();
     }
   break;
 
@@ -133,6 +142,7 @@ switch ($action) {
     $users = $dm->getData('users');
     $postData = $api->getPostData();
     $user = new StdClass();
+    $user->id = count($users->users);
     $user->name = $postData['name'];
     $user->forname = $postData['forname'];
     $user->city = $postData['city'];
@@ -141,12 +151,12 @@ switch ($action) {
     $user->email = $postData['email'];
     $users->users[] = $user;
     try {
+      $validator->validate($user);
       $dm->saveData($users, "users");
       $content = $dm->getData("users");
       $status->setMessage("OK");
     } catch(Exception $e) {
-      $status->setMessage($e->getMessage());
-      $content = array();
+      $content["error"] = $e->getMessage();
     }
   break;
 

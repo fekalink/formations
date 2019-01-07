@@ -49,13 +49,25 @@ window.addEventListener("load", function() {
     //soumission signup form
     document.getElementById('user-signup-form').addEventListener('submit', function(e) {
       e.stopPropagation();
+      e.preventDefault();
       let formData = new FormData(this);
       let settings = {
         async:false,
-        data: formData
+        data: formData,
+        targetSelector: "#message-signup-form"
       };
-      MUSICBAND.query.post("/modules/ajax/05-controller.php?action=createUser", settings, function(responseText, settings) {
-      } );
+      MUSICBAND.query.post("/modules/ajax/05-controller.php?action=createUser", settings,
+        function(responseText, settings) {
+          let response = JSON.parse(responseText);
+          console.log("TOTO",settings);
+          let message = document.querySelector(settings.targetSelector);
+          if (response.users) {
+            message.innerHTML = "Utilsateur crée avec succès";
+          } else {
+            message.innerHTML = "La création de l'utilisateur a échoué";
+          }
+          console.log(response);
+        } );
     })
   });
 

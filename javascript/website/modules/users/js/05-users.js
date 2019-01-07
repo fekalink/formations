@@ -35,6 +35,7 @@ window.addEventListener("load", function() {
         //soumission du profile form
         document.getElementById('user-profile-form').addEventListener('submit', function(e) {
           e.stopPropagation();
+          e.preventDefault();
           let formData = new FormData(this);
           console.log("name = " + formData.get('name'));
           let settings = {
@@ -50,5 +51,5 @@ window.addEventListener("load", function() {
       e.stopPropagation();
       e.preventDefault();
     });
-  });  
+  });
 });

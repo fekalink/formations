@@ -225,11 +225,19 @@ MUSICBAND.query = {
       if ( !settings.dataType ) {
         //settings.dataType = 'text/html';
       }
+
       xobj.overrideMimeType(settings.dataType);
       try {
         xobj.open(settings.method, destination, settings.async);
       } catch(e) {
         console.error(e);
+      }
+      if (!settings.cache) {
+        xobj.setRequestHeader('cache-control', 'no-cache, must-revalidate, post-check=0, pre-check=0');
+        xobj.setRequestHeader('cache-control', 'max-age=0');
+        //xhr.setRequestHeader('expires', '0');
+        //xhr.setRequestHeader('expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
+        xobj.setRequestHeader('pragma', 'no-cache');
       }
       xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {

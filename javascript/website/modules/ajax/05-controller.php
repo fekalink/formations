@@ -168,5 +168,10 @@ switch ($action) {
 }
 
 header('Content-type: application/json');
+header('cache-control: no-cache, must-revalidate, post-check=0, pre-check=0');
+header('cache-control', 'max-age=0');
+//xhr.setRequestHeader('expires', '0');
+//xhr.setRequestHeader('expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
+header('pragma', 'no-cache');
 //header('X-Json-Error: ' + json_encode($status));
 echo json_encode($content);

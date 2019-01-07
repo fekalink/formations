@@ -1,1 +1,8 @@
-{"users":[{"id":1,"name":"Galinette","forname":"Arthur","age":"32","city":"Grenoble","postalcode":"38000"},{"id":2,"name":"Boubounette","forname":"Mimie","age":"14","city":"Nancy","postalcode":"54600"},{"id":3,"name":"Lanterne","forname":"C\u00e9line","age":"26","city":"Crest","postalcode":"26300"},{"id":4,"name":"Rougeon","forname":"Antoin\u00e9","age":"52","city":"Angers","postalcode":"49100"},{"id":5,"name":"Monon","forname":"Romain","age":"12","city":"Paris","postalcode":"75011"},{"name":"Storchi","forname":"Guillaume","city":"Saillans","age":"36","postalcode":"26340","email":"info@guillaume-storchi.com"},{"name":"Storchi","forname":"Guillaume","city":"Saillans","age":"36","postalcode":"26340","email":"gstorchi@gmail.com"},{"name":"Storchi","forname":"Guillaume","city":"Saillans","age":"36","postalcode":"26340","email":"gstorchi@gmail.fr"}]}
+{"users":[
+    {"id":1,"name":"Galinette","forname":"Arthur","age":"32","city":"Grenoble","postalcode":"38000"},
+    {"id":2,"name":"Boubounette","forname":"Mimie","age":"14","city":"Nancy","postalcode":"54600"},
+    {"id":3,"name":"Lanterne","forname":"C\u00e9line","age":"26","city":"Crest","postalcode":"26300"},
+    {"id":4,"name":"Rougeon","forname":"Antoin\u00e9","age":"52","city":"Angers","postalcode":"49100"},
+    {"id":5,"name":"Monon","forname":"Romain","age":"12","city":"Paris","postalcode":"75011"}
+  ]
+}

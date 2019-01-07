@@ -5,11 +5,10 @@
  "OSMKey" : "CQGygA55zVK3GmfQJPpz",
  "css": [
     "/libraries/w3c/w3.css",
-    "/libraries/font-awesome/font-awesome.min.css",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
     "/css/global.css"
  ],
  "scripts" : [
-     "/libraries/babel/babel.min.js",
      "/libraries/jquery/jquery-3.3.1.min.js",
      "/libraries/w3c/w3.js",
      "/modules/menu/js/05-menu.js"
